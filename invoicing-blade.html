@@ -50,6 +50,13 @@
             border-radius: 50%;
         }
 
+        .sidebar-icon {
+            display: block;
+            padding-left: 23px;
+            margin-bottom: 8px;
+            /*text-align: center;*/
+        }
+
         .drop-link {
             padding: 10px 40px;
         }
@@ -142,7 +149,7 @@
             </div>
             <ul class="sidebar-menu">
                 <li class="drop-link" id="sidebar-item-1">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">资料管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-newspaper-o fa-2x sidebar-icon"></i>资料管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-1">
                         <ul class="sub-menu-list">
                             <li><a href="">企业信息管理</a></li>
@@ -154,7 +161,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-2">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">采购管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-shopping-basket fa-2x sidebar-icon"></i>采购管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-2">
                         <ul class="sub-menu-list">
                             <li><a href="">采购订单</a></li>
@@ -165,7 +172,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-3">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">销售管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-money fa-2x sidebar-icon"></i>销售管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-3">
                         <ul class="sub-menu-list">
                             <li><a href="">销售订货</a></li>
@@ -176,7 +183,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-4">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">库存管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-tasks fa-2x sidebar-icon"></i>库存管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-4">
                         <ul class="sub-menu-list">
                             <li><a href="">入库</a></li>
@@ -189,7 +196,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-5">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">统计分析<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-bar-chart fa-2x sidebar-icon"></i>统计分析<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-5">
                         <ul class="sub-menu-list">
                             <li><a href="">采购明细</a></li>
@@ -201,7 +208,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-6">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">系统管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-cog fa-2x sidebar-icon"></i>系统管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-6">
                         <ul class="sub-menu-list">
                             <li><a href="">操作记录</a></li>
@@ -264,7 +271,7 @@
                 $("#sidebar-item-6").children(":first").toggleClass("drop-active");
             });
         });
-        
+
         $(".invoicing-sidebar").css("min-height", window.innerHeight+'px');
     });
 

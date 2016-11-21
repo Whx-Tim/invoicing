@@ -6,6 +6,7 @@
     <title>生活家居进销存管理系统</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <style>
         * {
             padding: 0;
@@ -215,11 +216,11 @@
     </div>
     <div class="col-md-10">
         <ol class="breadcrumb" style="margin-top: 50px">
-            <h1>仪表盘</h1>
+            <h1>企业信息管理</h1>
             <li><a href="">首页</a></li>
-            <li class="active">仪表盘</li>
+            <li><a href="">资料管理</a></li>
+            <li class="active">企业信息管理</li>
         </ol>
-
     </div>
 </div>
 </body>
@@ -264,6 +265,8 @@
                 $("#sidebar-item-6").children(":first").toggleClass("drop-active");
             });
         });
+
+        $(".invoicing-sidebar").css("min-height", window.innerHeight+'px');
     });
 
 </script>
