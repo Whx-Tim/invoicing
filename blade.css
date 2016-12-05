@@ -52,12 +52,17 @@ body {
 }
 
 .drop-link:hover,
+.drop-link:focus,
+.drop-link:active,
 .drop-link:hover .sidebar-item-heading{
     background-color: #337ab7;
     color: #ffffff;
 }
 
-.drop-active {
+.drop-active,
+.drop-active:hover,
+.drop-active:focus,
+.drop-active:active{
     background-color: #337ab7;
     color: #ffffff;
 }

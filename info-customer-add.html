@@ -9,7 +9,7 @@
 <title>生活家居进销存管理系统-添加客户</title>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" style="border: none"></nav>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
 <div class="row">
     <div class="col-md-2" id="sidebar"></div>
     <div class="col-md-10">
@@ -25,39 +25,43 @@
                 <form id="customer-form">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
-                            <label for="customer-name">名称</label>
+                            <label for="customer-name">客户名称</label>
                             <input type="text" class="form-control" name="customer_name" id="customer-name" placeholder="请输入客户名称">
                         </div>
                         <div class="form-group">
-                            <label for="customer-short-name">名称缩写</label>
+                            <label for="customer-short-name">客户名称缩写</label>
                             <input type="text" class="form-control" name="customer_short_name" id="customer-short-name" placeholder="请输入客户名称缩写">
                         </div>
                         <div class="form-group">
-                            <label for="customer-linkman">联系人</label>
+                            <label for="customer-linkman">客户联系人</label>
                             <input type="text" class="form-control" name="customer_linkman" id="customer-linkman" placeholder="请输入客户联系人">
                         </div>
                         <div class="form-group">
-                            <label for="customer-address">地址</label>
+                            <label for="customer-address">客户地址</label>
                             <input type="text" class="form-control" name="customer_address" id="customer-address" placeholder="请输入客户地址">
                         </div>
+                        <div class="from-group">
+                            <label for="customer-postcode">客户邮编</label>
+                            <input type="text" class="form-control" name="customer_postcode" id="customer-postcode" placeholder="请输入客户的邮编">
+                        </div>
                         <div class="form-group">
-                            <label for="customer-phone">电话</label>
+                            <label for="customer-phone">客户电话</label>
                             <input type="number" class="form-control" name="customer_phone" id="customer-phone" placeholder="请输入客户电话">
                         </div>
                         <div class="form-group">
-                            <label for="customer-fax">传真</label>
+                            <label for="customer-fax">客户传真</label>
                             <input type="text" class="form-control" name="customer_fax" id="customer-fax" placeholder="请输入客户传真">
                         </div>
                         <div class="form-group">
-                            <label for="customer-bank">开户银行</label>
+                            <label for="customer-bank">客户开户银行</label>
                             <input type="text" class="form-control" name="customer_bank" id="customer-bank" placeholder="请输入客户开户银行">
                         </div>
                         <div class="form-group">
-                            <label for="customer-ibank">银行账号</label>
+                            <label for="customer-ibank">客户银行账号</label>
                             <input type="text" class="form-control" name="customer_ibank" id="customer-ibank" placeholder="请输入客户银行账号">
                         </div>
                         <div class="form-group">
-                            <label for="customer-level">等级</label>
+                            <label for="customer-level">客户等级</label>
                             <select name="customer_level" id="customer-level" class="form-control">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -66,6 +70,12 @@
                         </div>
                     </div>
                 </form>
+                <div class="col-md-6">
+                    <button class="btn btn-success btn-block">保存</button>
+                </div>
+                <div class="col-md-6">
+                    <a href="info-customer.html" class="btn btn-danger btn-block">返回</a>
+                </div>
             </div>
         </div>
     </div>

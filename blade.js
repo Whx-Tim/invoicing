@@ -1,4 +1,4 @@
-$('nav').append('<div class="row"> ' +
+$('nav#heading').append('<div class="row"> ' +
     '<div class="col-md-2"> ' +
     '<div class="navbar-header"> ' +
     '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"> ' +
@@ -133,5 +133,5 @@ $(document).ready(function () {
         });
     });
 
-    $(".invoicing-sidebar").css("min-height", window.innerHeight+'px');
+    $(".invoicing-sidebar").css("min-height", document.body.scrollHeight+'px');
 });

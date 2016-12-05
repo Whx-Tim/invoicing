@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+<title>生活家居进销存管理系统-添加商品</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>添加商品信息</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">资料管理</a></li>
+            <li><a href="info-good.html">商品信息管理</a></li>
+            <li class="active">添加商品信息</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="good-form">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label for="good-name">商品名称</label>
+                            <input type="text" class="form-control" name="good_name" id="good-name" placeholder="请输入商品的名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-type">商品类型</label>
+                            <select name="good_type" id="good-type" class="form-control">
+                                <option value="1">椅子</option>
+                                <option value="2">桌子</option>
+                                <option value="3">床垫</option>
+                                <option value="4">沙发</option>
+                                <option value="5">红木家具</option>
+                                <option value="6">柜子</option>
+                                <option value="7">衣橱</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-unit">商品单位</label>
+                            <input type="text" class="form-control" name="good_unit" id="good-unit" placeholder="请输入商品的单位">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-producing-area">商品产地</label>
+                            <input type="text" class="form-control" name="good_producing_area" id="good-producing-area" placeholder="请输入商品的产地">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-standard">商品尺寸</label>
+                            <input type="text" class="form-control" name="good_standard" id="good-standard" placeholder="请输入商品的尺寸">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-purchase-price">采购价格</label>
+                            <input type="number" name="good_purchase_price" id="good-purchase-price" class="form-control" placeholder="请输入商品的采购价格">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-sale-price-1">第一销售价</label>
+                            <input type="number" name="good_sale_price_1" id="good-sale-price-1" class="form-control" placeholder="请输入商品的第一销售价格">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-sale-price-2">第二销售价</label>
+                            <input type="number" name="good_sale_price_2" id="good-sale-price-2" class="form-control" placeholder="请输入商品的第二销售价格">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-loweset-sale-price">最低销售价</label>
+                            <input type="number" name="good_lowest_sale_price" id="good-loweset-sale-price" class="form-control" placeholder="请输入商品的最低销售价格">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-description">商品描述</label>
+                            <textarea name="good_description" id="good-description" cols="30" rows="10" class="form-control" placeholder="请输入商品的描述"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-md-6">
+                    <button class="btn btn-success btn-block">保存</button>
+                </div>
+                <div class="col-md-6">
+                    <a href="info-good.html" class="btn btn-danger btn-block">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="blade.js"></script>
