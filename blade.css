@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Microsoft Yahei, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.invoicing-navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.invoicing-sidebar {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(152,207,231);
+}
+
+.sidebar-menu {
+    list-style: none;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.sidebar-user {
+    padding-top: 70px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-user img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+.sidebar-icon {
+    display: block;
+    padding-left: 23px;
+    margin-bottom: 8px;
+    /*text-align: center;*/
+}
+
+.drop-link {
+    padding: 10px 40px;
+}
+
+.drop-link:hover,
+.drop-link:hover .sidebar-item-heading{
+    background-color: #337ab7;
+    color: #ffffff;
+}
+
+.drop-active {
+    background-color: #337ab7;
+    color: #ffffff;
+}
+
+.sidebar-item-heading{
+    width: 100%;
+    font-weight: 500;
+    /*color: #ffffff;*/
+}
+
+.sidebar-item-heading:hover,
+.sidebar-item-heading:focus {
+    text-decoration: none;
+}
+
+.navbar-header {
+    width: 100%;
+    background-color: rgb(152,207,231);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.sub-menu .sub-menu-list {
+    list-style: none;
+    font-size: 14px;
+    width: 100%;
+}
+
+.sub-menu .sub-menu-list li {
+    padding: 5px;
+}
+.sub-menu .sub-menu-list li:first-child {
+    margin-top: 10px;
+}
+
+.sub-menu-list > li > a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.sub-menu-list > li:hover {
+    background-color: rgb(152,207,231);
+}

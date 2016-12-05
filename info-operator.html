@@ -3,10 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>生活家居进销存管理系统</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="blade.css">
-    <title>生活家居进销存管理系统</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Microsoft Yahei, sans-serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .invoicing-navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .invoicing-sidebar {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(152,207,231);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .sidebar-user {
+            padding-top: 70px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sidebar-user img{
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+        }
+
+        .sidebar-icon {
+            display: block;
+            padding-left: 23px;
+            margin-bottom: 8px;
+            /*text-align: center;*/
+        }
+
+        .drop-link {
+            padding: 10px 40px;
+        }
+
+        .drop-link:hover,
+        .drop-link:hover .sidebar-item-heading{
+            background-color: #337ab7;
+            color: #ffffff;
+        }
+
+        .drop-active {
+            background-color: #337ab7;
+            color: #ffffff;
+        }
+
+        .sidebar-item-heading{
+            width: 100%;
+            font-weight: 500;
+            /*color: #ffffff;*/
+        }
+
+        .sidebar-item-heading:hover,
+        .sidebar-item-heading:focus {
+            text-decoration: none;
+        }
+
+        .navbar-header {
+            width: 100%;
+            background-color: rgb(152,207,231);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sub-menu {
+            display: none;
+        }
+
+        .sub-menu .sub-menu-list {
+            list-style: none;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .sub-menu .sub-menu-list li {
+            padding: 5px;
+        }
+        .sub-menu .sub-menu-list li:first-child {
+            margin-top: 10px;
+        }
+
+        .sub-menu-list > li > a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .sub-menu-list > li:hover {
+            background-color: rgb(152,207,231);
+        }
+
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" style="border: none">
@@ -110,10 +224,60 @@
     </div>
     <div class="col-md-10">
         <ol class="breadcrumb" style="margin-top: 50px">
-            <h1>仪表盘</h1>
+            <h1>用户信息管理</h1>
             <li><a href="">首页</a></li>
-            <li class="active">仪表盘</li>
+            <li><a href="">资料管理</a></li>
+            <li class="active">用户信息管理</li>
         </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button class="btn btn-info">添加用户 <i class="fa fa-plus"></i></button>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>名称</th>
+                                <th>性别</th>
+                                <th>电话</th>
+                                <th>地址</th>
+                                <th>邮编</th>
+                                <th>身份证号码</th>
+                                <th>职位</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">编辑 <i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-warning btn-sm">删除 <i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav  style="text-align: center">
+                    <ul class="pagination">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </div>
 </body>
@@ -123,10 +287,10 @@
 <script>
     $(document).ready(function () {
         $("#sidebar-item-1").click(function () {
-             $("#sub-menu-1").slideToggle(500, function () {
-                 $("#sidebar-item-1").toggleClass('drop-active');
-                 $("#sidebar-item-1").children(":first").toggleClass("drop-active");
-             });
+            $("#sub-menu-1").slideToggle(500, function () {
+                $("#sidebar-item-1").toggleClass('drop-active');
+                $("#sidebar-item-1").children(":first").toggleClass("drop-active");
+            });
         });
         $("#sidebar-item-2").click(function () {
             $("#sub-menu-2").slideToggle(500, function () {

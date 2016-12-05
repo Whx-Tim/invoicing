@@ -1,0 +1,21 @@
+.company-info-item label {
+    display: inline-block;
+    width: 130px;
+}
+
+.company-info-item p {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.company-info-item {
+    display: block;
+    font-size: 20px;
+    padding: 7px;
+    margin-left: 30%;
+}
+
+.company-list-group {
+    margin-top: 100px;
+}

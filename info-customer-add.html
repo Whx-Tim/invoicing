@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+<title>生活家居进销存管理系统-添加客户</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>添加客户</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">资料管理</a></li>
+            <li><a href="info-customer.html">客户信息管理</a></li>
+            <li class="active">添加客户</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="customer-form">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label for="customer-name">名称</label>
+                            <input type="text" class="form-control" name="customer_name" id="customer-name" placeholder="请输入客户名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-short-name">名称缩写</label>
+                            <input type="text" class="form-control" name="customer_short_name" id="customer-short-name" placeholder="请输入客户名称缩写">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-linkman">联系人</label>
+                            <input type="text" class="form-control" name="customer_linkman" id="customer-linkman" placeholder="请输入客户联系人">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-address">地址</label>
+                            <input type="text" class="form-control" name="customer_address" id="customer-address" placeholder="请输入客户地址">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-phone">电话</label>
+                            <input type="number" class="form-control" name="customer_phone" id="customer-phone" placeholder="请输入客户电话">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-fax">传真</label>
+                            <input type="text" class="form-control" name="customer_fax" id="customer-fax" placeholder="请输入客户传真">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-bank">开户银行</label>
+                            <input type="text" class="form-control" name="customer_bank" id="customer-bank" placeholder="请输入客户开户银行">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-ibank">银行账号</label>
+                            <input type="text" class="form-control" name="customer_ibank" id="customer-ibank" placeholder="请输入客户银行账号">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-level">等级</label>
+                            <select name="customer_level" id="customer-level" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="blade.js"></script>

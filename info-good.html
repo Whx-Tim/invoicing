@@ -50,6 +50,13 @@
             border-radius: 50%;
         }
 
+        .sidebar-icon {
+            display: block;
+            padding-left: 23px;
+            margin-bottom: 8px;
+            /*text-align: center;*/
+        }
+
         .drop-link {
             padding: 10px 40px;
         }
@@ -142,19 +149,20 @@
             </div>
             <ul class="sidebar-menu">
                 <li class="drop-link" id="sidebar-item-1">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">资料管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-newspaper-o fa-2x sidebar-icon"></i>资料管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-1">
                         <ul class="sub-menu-list">
-                            <li><a href="">企业信息管理</a></li>
-                            <li><a href="">客户信息管理</a></li>
-                            <li><a href="">商品信息管理</a></li>
-                            <li><a href="">供应商信息管理</a></li>
-                            <li><a href="">系统管理</a></li>
+                            <li><a href="info-operator.html">用户信息管理</a></li>
+                            <li><a href="info-company.html">企业信息管理</a></li>
+                            <li><a href="info-customer.html">客户信息管理</a></li>
+                            <li><a href="info-good.html">商品信息管理</a></li>
+                            <li><a href="info-supplier.html">供应商信息管理</a></li>
+                            <!--<li><a href="info-setting.html">系统管理</a></li>-->
                         </ul>
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-2">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">采购管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-shopping-basket fa-2x sidebar-icon"></i>采购管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-2">
                         <ul class="sub-menu-list">
                             <li><a href="">采购订单</a></li>
@@ -165,7 +173,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-3">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">销售管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-money fa-2x sidebar-icon"></i>销售管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-3">
                         <ul class="sub-menu-list">
                             <li><a href="">销售订货</a></li>
@@ -176,7 +184,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-4">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">库存管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-tasks fa-2x sidebar-icon"></i>库存管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-4">
                         <ul class="sub-menu-list">
                             <li><a href="">入库</a></li>
@@ -189,7 +197,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-5">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">统计分析<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-bar-chart fa-2x sidebar-icon"></i>统计分析<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-5">
                         <ul class="sub-menu-list">
                             <li><a href="">采购明细</a></li>
@@ -201,7 +209,7 @@
                     </div>
                 </li>
                 <li class="drop-link" id="sidebar-item-6">
-                    <a class="sidebar-item-heading" href="javascript:void(0)">系统管理<i class="fa fa-angle-down pull-right"></i></a>
+                    <a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-cog fa-2x sidebar-icon"></i>系统管理<i class="fa fa-angle-down pull-right"></i></a>
                     <div class="sub-menu" id="sub-menu-6">
                         <ul class="sub-menu-list">
                             <li><a href="">操作记录</a></li>
@@ -216,11 +224,64 @@
     </div>
     <div class="col-md-10">
         <ol class="breadcrumb" style="margin-top: 50px">
-            <h1>企业信息管理</h1>
+            <h1>商品信息管理</h1>
             <li><a href="">首页</a></li>
             <li><a href="">资料管理</a></li>
-            <li class="active">企业信息管理</li>
+            <li class="active">商品信息管理</li>
         </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button class="btn btn-info">添加商品&nbsp;<i class="fa fa-plus"></i></button>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>类型</th>
+                                <th>单位</th>
+                                <th>产地</th>
+                                <th>尺寸</th>
+                                <th>描述</th>
+                                <th>采购价格</th>
+                                <th>第一销售价</th>
+                                <th>第二销售价</th>
+                                <th>最低销售价</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">编辑 <i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-warning btn-sm">删除 <i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav  style="text-align: center">
+                    <ul class="pagination">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </div>
 </body>
