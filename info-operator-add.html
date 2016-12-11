@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+<title>生活家居进销存管理系统-添加用户</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>添加用户</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">资料管理</a></li>
+            <li><a href="info-operator.html">用户信息管理</a></li>
+            <li class="active">添加用户</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="operator-form">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label for="operator-name">业务员名称</label>
+                            <input type="text" class="form-control" name="operator_name" id="operator-name" placeholder="请输入业务员名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="operator-sex">业务员性别</label>
+                            <select name="operator_sex" id="operator-sex" class="form-control">
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="operator-phone">业务员电话</label>
+                            <input type="number" class="form-control" name="operator_phone" id="operator-phone" placeholder="请输入业务员电话">
+                        </div>
+                        <div class="form-group">
+                            <label for="operator-address">业务员地址</label>
+                            <input type="text" class="form-control" name="operator_address" id="operator-address" placeholder="请输入业务员地址">
+                        </div>
+                        <div class="form-group">
+                            <label for="operator-postcode">业务员邮编</label>
+                            <input type="text" class="form-control" name="operator_postcode" id="operator-postcode" placeholder="请输入业务员邮编">
+                        </div>
+                        <div class="form-group">
+                            <label for="operator-id-number">业务员身份证号码</label>
+                            <input type="text" class="form-control" name="operator_id_number" id="operator-id-number" placeholder="请输入业务员身份证号码">
+                        </div>
+                        <div class="form-group">
+                            <label for="operator-position">业务员职位</label>
+                            <input type="text" class="form-control" name="operator_position" id="operator-position" placeholder="请输入业务员职位">
+                        </div>
+                    </div>
+                </form>
+                <div class="col-md-6">
+                    <button class="btn btn-success btn-block">保存</button>
+                </div>
+                <div class="col-md-6">
+                    <a href="info-operator.html" class="btn btn-danger btn-block">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="blade.js"></script>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+<title>生活家居进销存管理系统-销售订单</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>销售订单</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">销售管理</a></li>
+            <li class="active">销售订单</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="sale-form">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label for="good-id">商品编号</label>
+                            <input type="number" name="good_id" id="good-id" class="form-control" placeholder="请输入商品的编号">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-name">商品名称</label>
+                            <input type="text" class="form-control" name="good_name" id="good-name" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-type">商品类型</label>
+                            <input type="text" class="form-control" name="good_type" id="good-type" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-unit">商品单位</label>
+                            <input type="text" class="form-control" name="good_unit" id="good-unit" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-producing-area">商品产地</label>
+                            <input type="text" class="form-control" name="good_producing_area" id="good-producing-area" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-standard">商品尺寸</label>
+                            <input type="text" class="form-control" name="good_standard" id="good-standard" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="ds-amount">库存数量</label>
+                            <input type="text" class="form-control" name="ds_amount" id="ds-amount" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="sale-amount">销售数量</label>
+                            <input type="number" class="form-control" name="sale_amount" id="sale-amount" placeholder="请输入销售的数量">
+                        </div>
+                        <div class="form-group">
+                            <label for="sale-price">销售单价</label>
+                            <input type="number" class="form-control" name="sale_price" id="sale-price" placeholder="请输入销售的单价">
+                        </div>
+                        <div class="form-group">
+                            <label for="sale-discount">折扣</label>
+                            <select name="sale_discount" id="sale-discount" class="form-control">
+                                <option value="1">零售价(100%)</option>
+                                <option value="2">一级批发折扣(95%)</option>
+                                <option value="3">二级批发折扣(90%)</option>
+                                <option value="4">三级批发折扣(85%)</option>
+                                <option value="5">四级批发折扣(80%)</option>
+                                <option value="6">最低折扣(65%)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sale-discount-price">折后单价</label>
+                            <input type="text" class="form-control" name="sale_discount_price" id="sale-discount-price" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="sale-total-price">总价</label>
+                            <input type="text" class="form-control" name="sale_total_price" id="sale-total-price" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="blade.js"></script>

@@ -114,3 +114,11 @@ body {
 .sub-menu-list > li:hover {
     background-color: rgb(152,207,231);
 }
+
+.panel-body {
+    overflow-x: auto;
+}
+
+.table-responsive {
+    width: 1500px;
+}

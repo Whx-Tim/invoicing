@@ -47,9 +47,9 @@ $('#sidebar').append('<div class="invoicing-sidebar"> ' +
     '<a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-money fa-2x sidebar-icon"></i>销售管理<i class="fa fa-angle-down pull-right"></i></a> ' +
     '<div class="sub-menu" id="sub-menu-3"> ' +
     '<ul class="sub-menu-list"> ' +
-    '<li><a href="">销售订货</a></li> ' +
+    '<li><a href="sale-order.html">销售订货</a></li> ' +
     '<li><a href="">销售出库</a></li> ' +
-    '<li><a href="">销售查询</a></li> ' +
+    '<li><a href="sale-info.html">销售查询</a></li> ' +
     '<li><a href="">销售退货</a></li> ' +
     '</ul> ' +
     '</div> ' +
