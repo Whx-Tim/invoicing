@@ -6,6 +6,7 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
+    <link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
 <title>生活家居进销存管理系统-销售订单</title>
 </head>
 <body>
@@ -21,7 +22,41 @@
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
+                <form id="sale-preview-form">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="customer-name-preview">购买客户</label>
+                            <input type="text" class="form-control" id="customer-name-preview" placeholder="请输入购买的客户名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="sale-out-depot-preview">销售仓库</label>
+                            <input type="text" class="form-control" id="sale-out-depot-preview" placeholder="请输入销售出库的仓库">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="sale-send-date-preview">销售发货时间</label>
+                            <div class="input-append date form_datetime">
+                                <input type="text" class="form-control" id="sale-send-date-preview" readonly value="" size="16">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sale-send-address-preview">销售送货地址</label>
+                            <input type="text" class="form-control" id="sale-send-address-preview" placeholder="请输入送货的地址">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
                 <form id="sale-form">
+                    <input type="hidden" name="customer_name" value="">
+                    <input type="hidden" name="sale_out_depot" value="">
+                    <input type="hidden" name="sale_send_date" value="">
+                    <input type="hidden" name="sale_send_address" value="">
+                    <input type="hidden" name="operator_id" value="">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="good-id">商品编号</label>
@@ -29,27 +64,27 @@
                         </div>
                         <div class="form-group">
                             <label for="good-name">商品名称</label>
-                            <input type="text" class="form-control" name="good_name" id="good-name" disabled>
+                            <input type="text" class="form-control" name="good_name" id="good-name" readonly>
                         </div>
                         <div class="form-group">
                             <label for="good-type">商品类型</label>
-                            <input type="text" class="form-control" name="good_type" id="good-type" disabled>
+                            <input type="text" class="form-control" name="good_type" id="good-type" readonly>
                         </div>
                         <div class="form-group">
                             <label for="good-unit">商品单位</label>
-                            <input type="text" class="form-control" name="good_unit" id="good-unit" disabled>
+                            <input type="text" class="form-control" name="good_unit" id="good-unit" readonly>
                         </div>
                         <div class="form-group">
                             <label for="good-producing-area">商品产地</label>
-                            <input type="text" class="form-control" name="good_producing_area" id="good-producing-area" disabled>
+                            <input type="text" class="form-control" name="good_producing_area" id="good-producing-area" readonly>
                         </div>
                         <div class="form-group">
                             <label for="good-standard">商品尺寸</label>
-                            <input type="text" class="form-control" name="good_standard" id="good-standard" disabled>
+                            <input type="text" class="form-control" name="good_standard" id="good-standard" readonly>
                         </div>
                         <div class="form-group">
                             <label for="ds-amount">库存数量</label>
-                            <input type="text" class="form-control" name="ds_amount" id="ds-amount" disabled>
+                            <input type="text" class="form-control" name="ds_amount" id="ds-amount" readonly>
                         </div>
                         <div class="form-group">
                             <label for="sale-amount">销售数量</label>
@@ -72,14 +107,20 @@
                         </div>
                         <div class="form-group">
                             <label for="sale-discount-price">折后单价</label>
-                            <input type="text" class="form-control" name="sale_discount_price" id="sale-discount-price" disabled>
+                            <input type="text" class="form-control" name="sale_discount_price" id="sale-discount-price" readonly>
                         </div>
                         <div class="form-group">
                             <label for="sale-total-price">总价</label>
-                            <input type="text" class="form-control" name="sale_total_price" id="sale-total-price" disabled>
+                            <input type="text" class="form-control" name="sale_total_price" id="sale-total-price" readonly>
                         </div>
                     </div>
                 </form>
+                <div class="col-md-6">
+                    <button class="btn btn-success btn-block" id="save-button">保存</button>
+                </div>
+                <div class="col-md-6">
+                    <a href="" class="btn btn-danger btn-block">返回</a>
+                </div>
             </div>
         </div>
     </div>
@@ -88,4 +129,12 @@
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="bootstrap-datetimepicker.min.js"></script>
+<script src="bootstrap-datetimepicker.zh-CN.js"></script>
 <script src="blade.js"></script>
+
+<script>
+    $('.form_datetime').datetimepicker({
+        format: "yyyy-mm-dd hh:ii"
+    });
+</script>
