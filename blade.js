@@ -36,10 +36,10 @@ $('#sidebar').append('<div class="invoicing-sidebar"> ' +
     '<a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-shopping-basket fa-2x sidebar-icon"></i>采购管理<i class="fa fa-angle-down pull-right"></i></a> ' +
     '<div class="sub-menu" id="sub-menu-2"> ' +
     '<ul class="sub-menu-list"> ' +
-    '<li><a href="">采购订单</a></li> ' +
-    '<li><a href="">采购入库</a></li> ' +
-    '<li><a href="">采购查询</a></li> ' +
-    '<li><a href="">采购退货</a></li> ' +
+    '<li><a href="purchase-order.html">采购订单</a></li> ' +
+    '<li><a href="purchase-in-depot.html">采购入库</a></li> ' +
+    '<li><a href="purchase-info.html">采购查询</a></li> ' +
+    '<li><a href="purchase-return.html">采购退货</a></li> ' +
     '</ul> ' +
     '</div> ' +
     '</li> ' +
@@ -48,9 +48,9 @@ $('#sidebar').append('<div class="invoicing-sidebar"> ' +
     '<div class="sub-menu" id="sub-menu-3"> ' +
     '<ul class="sub-menu-list"> ' +
     '<li><a href="sale-order.html">销售订货</a></li> ' +
-    '<li><a href="">销售出库</a></li> ' +
+    '<li><a href="sale-out-depot.html">销售出库</a></li> ' +
     '<li><a href="sale-info.html">销售查询</a></li> ' +
-    '<li><a href="">销售退货</a></li> ' +
+    '<li><a href="sale-return.html">销售退货</a></li> ' +
     '</ul> ' +
     '</div> ' +
     '</li> ' +
@@ -58,12 +58,12 @@ $('#sidebar').append('<div class="invoicing-sidebar"> ' +
     '<a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-tasks fa-2x sidebar-icon"></i>库存管理<i class="fa fa-angle-down pull-right"></i></a> ' +
     '<div class="sub-menu" id="sub-menu-4"> ' +
     '<ul class="sub-menu-list"> ' +
-    '<li><a href="">入库</a></li> ' +
-    '<li><a href="">出库</a></li> ' +
-    '<li><a href="">库存盘点</a></li> ' +
-    '<li><a href="">库存调拨</a></li> ' +
-    '<li><a href="">库存查询</a></li> ' +
-    '<li><a href="">库存警戒</a></li> ' +
+    '<li><a href="depot-in.html">入库</a></li> ' +
+    '<li><a href="depot-out.html">出库</a></li> ' +
+    '<li><a href="depot-check.html">库存盘点</a></li> ' +
+    '<li><a href="depot-change.html">库存调拨</a></li> ' +
+    '<li><a href="detail-depot.html">库存查询</a></li> ' +
+    '<li><a href="depot-warning.html">库存警戒</a></li> ' +
     '</ul> ' +
     '</div> ' +
     '</li> ' +
@@ -71,11 +71,11 @@ $('#sidebar').append('<div class="invoicing-sidebar"> ' +
     '<a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-bar-chart fa-2x sidebar-icon"></i>统计分析<i class="fa fa-angle-down pull-right"></i></a> ' +
     '<div class="sub-menu" id="sub-menu-5"> ' +
     '<ul class="sub-menu-list"> ' +
-    '<li><a href="">采购明细</a></li> ' +
-    '<li><a href="">销售明细</a></li> ' +
-    '<li><a href="">入库明细</a></li> ' +
-    '<li><a href="">出库明细</a></li> ' +
-    '<li><a href="">库存汇总</a></li> ' +
+    '<li><a href="detail-purchase.html">采购明细</a></li> ' +
+    '<li><a href="detail-sale.html">销售明细</a></li> ' +
+    '<li><a href="detail-in-depot.html">入库明细</a></li> ' +
+    '<li><a href="detail-out-depot.html">出库明细</a></li> ' +
+    '<li><a href="detail-depot.html">库存汇总</a></li> ' +
     '</ul> ' +
     '</div> ' +
     '</li> ' +
@@ -83,10 +83,10 @@ $('#sidebar').append('<div class="invoicing-sidebar"> ' +
     '<a class="sidebar-item-heading" href="javascript:void(0)"><i class="fa fa-cog fa-2x sidebar-icon"></i>系统管理<i class="fa fa-angle-down pull-right"></i></a> ' +
     '<div class="sub-menu" id="sub-menu-6"> ' +
     '<ul class="sub-menu-list"> ' +
-    '<li><a href="">操作记录</a></li> ' +
+    '<li><a href="setting-operation.html">操作记录</a></li> ' +
     '<li><a href="">参数设置</a></li> ' +
-    '<li><a href="">权限设置</a></li> ' +
-    '<li><a href="">修改密码</a></li> ' +
+    '<li><a href="setting-permission.html">权限设置</a></li> ' +
+    '<li><a href="setting-password.html">修改密码</a></li> ' +
     '</ul> ' +
     '</div> ' +
     '</li> ' +
@@ -134,4 +134,49 @@ $(document).ready(function () {
     });
 
     $(".invoicing-sidebar").css("min-height", document.body.scrollHeight+'px');
+
+    $('#save-button').click(function (e) {
+        e.preventDefault();
+        var form = $('form[ajax-url]');
+        var url = form.attr('ajax-url');
+        if (!url) {
+            swal("系统错误","请联系管理员，url参数错误","error");
+        } else {
+            var data = form.serialize();
+            console.log(data);
+            $.ajax({
+                url: url,
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                cache: false,
+                success: function (data) {
+                    if (data.errcode) {
+                        alert('操作失败');
+                    } else {
+                        alert('操作成功');
+                    }
+                },
+                error: function (e) {
+                    alert('未知错误');
+                    console.log(e.responseText);
+                }
+            })
+        }
+    });
+
+    function isEmpty(e)
+    {
+        if (typeof(e) == 'undefined' ) {
+            return true;
+        } else if (typeof(e) != "object" ) {
+            return true;
+        } else if (!e) {
+            return true;
+        }
+
+        return false;
+    }
 });
+
+

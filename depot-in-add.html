@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+<title>生活家居进销存管理系统-新增入库单</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>新增入库单</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">库存管理</a></li>
+            <li><a href="depot-in.html">入库</a></li>
+            <li class="active">新增入库单</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="depot-in-preview">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="in-depot">收入仓库</label>
+                            <input type="text" class="form-control" id="in-depot">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="operator-name">业务员</label>
+                            <input type="text" class="form-control" id="operator-name" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="depot-in-form">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label for="good-id">商品编号</label>
+                            <input type="number" name="good_id" id="good-id" class="form-control" placeholder="请输入商品的编号">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-name">商品名称</label>
+                            <input type="text" class="form-control" name="good_name" id="good-name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-type">商品类型</label>
+                            <input type="text" class="form-control" name="good_type" id="good-type" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-unit">商品单位</label>
+                            <input type="text" class="form-control" name="good_unit" id="good-unit" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-producing-area">商品产地</label>
+                            <input type="text" class="form-control" name="good_producing_area" id="good-producing-area" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-standard">商品尺寸</label>
+                            <input type="text" class="form-control" name="good_standard" id="good-standard" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="ds-amount">库存数量</label>
+                            <input type="text" class="form-control" name="ds_amount" id="ds-amount" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="in-amount">入库数量</label>
+                            <input type="number" class="form-control" name="in_amount" id="in-amount">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-price">单价</label>
+                            <input type="number" class="form-control" name="good_price" id="good-price">
+                        </div>
+                        <div class="form-group">
+                            <label for="good-total-price">金额</label>
+                            <input type="text" class="form-control" name="good_total_price" id="good-total-price" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success btn-block" id="save-button">保存</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="depot-in.html" class="btn btn-danger btn-block">返回</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="blade.js"></script>

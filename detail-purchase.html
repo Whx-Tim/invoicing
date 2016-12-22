@@ -6,7 +6,7 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
-<title>生活家居进销存管理系统-销售订单查询</title>
+<title>生活家居进销存管理系统-采购明细</title>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
@@ -14,37 +14,45 @@
     <div class="col-md-2" id="sidebar"></div>
     <div class="col-md-10">
         <ol class="breadcrumb" style="margin-top: 50px">
-            <h1>销售订单查询</h1>
+            <h1>采购明细</h1>
             <li><a href="">首页</a></li>
-            <li><a href="">销售管理</a></li>
-            <li class="active">销售订单查询</li>
+            <li><a href="">统计分析</a></li>
+            <li class="active">采购明细</li>
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="table-responsive" style="width: 2000px">
+                <div class="table-responsive" style="width: 2500px">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>销售订单编号</th>
-                                <th>订单创建日期</th>
-                                <th>购买客户</th>
-                                <th>业务员</th>
-                                <th>总金额</th>
-                                <th>出库状态</th>
+                                <th>商品编号</th>
+                                <th>商品名称</th>
+                                <th>商品类别</th>
+                                <th>采购订编号</th>
+                                <th>采购日期</th>
                                 <th>订单状态</th>
-                                <th>送货日期</th>
-                                <th>送货地址</th>
-                                <th>客户地址</th>
-                                <th>客户联系人</th>
-                                <th>客户电话</th>
-                                <th>客户传真</th>
-                                <th>备注</th>
+                                <th>供应商</th>
+                                <th>订单数量</th>
+                                <th>已入库数</th>
+                                <th>待入库数</th>
+                                <th>单价</th>
+                                <th>金额</th>
+                                <th>业务员</th>
+                                <th>商品单位</th>
+                                <th>商品产地</th>
+                                <th>商品尺寸</th>
+                                <th>商品描述</th>
+                                <th>入库仓库</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
+                                <td>数据正在加载</td>
                                 <td>数据正在加载</td>
                                 <td>数据正在加载</td>
                                 <td>数据正在加载</td>
@@ -60,25 +68,24 @@
                                 <td>数据正在加载</td>
                                 <td>
                                     <button class="btn btn-primary" id="edit-button">编辑 <i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-info" id="view-button">查看 <i class="fa fa-eye"></i></button>
-                                    <button class="btn btn-danger" id="delete-btn">删除 <i class="fa fa-trash-o"></i></button>
+                                    <button class="btn btn-danger" id="delete-button">删除 <i class="fa fa-trash-o"></i></button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <nav  style="text-align: center">
-                    <ul class="pagination">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </nav>
             </div>
+            <nav  style="text-align: center">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
