@@ -4,15 +4,19 @@
     <list default="true" id="98eae7ec-aa7d-4434-aeec-8175f8f7bada" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blade.js" afterPath="$PROJECT_DIR$/blade.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-company-edit.html" afterPath="$PROJECT_DIR$/info-company-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-customer-add.html" afterPath="$PROJECT_DIR$/info-customer-add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-customer-edit.html" afterPath="$PROJECT_DIR$/info-customer-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-customer.html" afterPath="$PROJECT_DIR$/info-customer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-depot-add.html" afterPath="$PROJECT_DIR$/info-depot-add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-depot.html" afterPath="$PROJECT_DIR$/info-depot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-good-add.html" afterPath="$PROJECT_DIR$/info-good-add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-depot-edit.html" afterPath="$PROJECT_DIR$/info-depot-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-good-edit.html" afterPath="$PROJECT_DIR$/info-good-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-good.html" afterPath="$PROJECT_DIR$/info-good.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-operator-add.html" afterPath="$PROJECT_DIR$/info-operator-add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-operator-edit.html" afterPath="$PROJECT_DIR$/info-operator-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-operator.html" afterPath="$PROJECT_DIR$/info-operator.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sale-info.html" afterPath="$PROJECT_DIR$/sale-info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-supplier-add.html" afterPath="$PROJECT_DIR$/info-supplier-add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-supplier.html" afterPath="$PROJECT_DIR$/info-supplier.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/purchase-in-depot-add.html" afterPath="$PROJECT_DIR$/purchase-in-depot-add.html" />
     </list>
     <ignored path="invoicing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,61 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="info-depot-add.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-depot-add.html">
+      <file leaf-file-name="info-operator-edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-operator-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-depot.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/info-depot.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="69" column="76" selection-start-line="69" selection-start-column="76" selection-end-line="69" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-depot-edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-depot-edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-good.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-good.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="83" column="76" selection-start-line="83" selection-start-column="76" selection-end-line="83" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-good-add.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-good-add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-customer-edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-customer-edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1404">
-              <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+            <state relative-caret-position="751">
+              <caret line="82" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -97,11 +51,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="info-good-edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-good-edit.html">
+      <file leaf-file-name="info-company.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-company.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
-              <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+            <state relative-caret-position="167">
+              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-customer.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/info-customer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="699">
+              <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-supplier-edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-supplier-edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1248">
+              <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-customer-edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-customer-edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1235">
+              <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="purchase-in-depot-add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/purchase-in-depot-add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1560">
+              <caret line="120" column="11" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -110,18 +104,8 @@
       <file leaf-file-name="info-operator.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/info-operator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-operator-edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-operator-edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
+            <state relative-caret-position="871">
+              <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -130,9 +114,31 @@
       <file leaf-file-name="info-operator-add.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/info-operator-add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23">
-              <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+            <state relative-caret-position="569">
+              <caret line="61" column="77" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="purchase-in-depot.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/purchase-in-depot.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1014">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blade.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blade.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1195">
+              <caret line="215" column="1" selection-start-line="215" selection-start-column="1" selection-end-line="215" selection-end-column="1" />
+              <folding>
+                <marker date="1482683296839" expanded="true" signature="457:471" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,13 +155,10 @@
         <option value="$PROJECT_DIR$/company.css" />
         <option value="$PROJECT_DIR$/company-info.html" />
         <option value="$PROJECT_DIR$/info-user.html" />
-        <option value="$PROJECT_DIR$/info-supplier.html" />
-        <option value="$PROJECT_DIR$/info-supplier-add.html" />
         <option value="$PROJECT_DIR$/invoicing-blade.html" />
         <option value="$PROJECT_DIR$/invoicing-index.html" />
         <option value="$PROJECT_DIR$/info-company.html" />
         <option value="$PROJECT_DIR$/blade.css" />
-        <option value="$PROJECT_DIR$/info-company-edit.html" />
         <option value="$PROJECT_DIR$/sale-info.html" />
         <option value="$PROJECT_DIR$/sale-out-depot.html" />
         <option value="$PROJECT_DIR$/sale-return.html" />
@@ -177,23 +180,27 @@
         <option value="$PROJECT_DIR$/depot-out-add.html" />
         <option value="$PROJECT_DIR$/depot-check.html" />
         <option value="$PROJECT_DIR$/setting-password.html" />
-        <option value="$PROJECT_DIR$/info-customer.html" />
-        <option value="$PROJECT_DIR$/info-customer-add.html" />
         <option value="$PROJECT_DIR$/purchase-in-depot.html" />
-        <option value="$PROJECT_DIR$/purchase-in-depot-add.html" />
-        <option value="$PROJECT_DIR$/blade.js" />
         <option value="$PROJECT_DIR$/purchase-return-add.html" />
         <option value="$PROJECT_DIR$/purchase-order.html" />
-        <option value="$PROJECT_DIR$/info-good.html" />
         <option value="$PROJECT_DIR$/info-good-add.html" />
+        <option value="$PROJECT_DIR$/info-depot-add.html" />
+        <option value="$PROJECT_DIR$/info-depot.html" />
+        <option value="$PROJECT_DIR$/info-supplier.html" />
+        <option value="$PROJECT_DIR$/info-customer-add.html" />
+        <option value="$PROJECT_DIR$/info-customer.html" />
+        <option value="$PROJECT_DIR$/info-good-edit.html" />
+        <option value="$PROJECT_DIR$/info-good.html" />
+        <option value="$PROJECT_DIR$/info-depot-edit.html" />
+        <option value="$PROJECT_DIR$/info-operator-edit.html" />
+        <option value="$PROJECT_DIR$/info-supplier-add.html" />
+        <option value="$PROJECT_DIR$/info-supplier-edit.html" />
+        <option value="$PROJECT_DIR$/info-company-edit.html" />
+        <option value="$PROJECT_DIR$/info-customer-edit.html" />
+        <option value="$PROJECT_DIR$/purchase-in-depot-add.html" />
         <option value="$PROJECT_DIR$/info-operator.html" />
         <option value="$PROJECT_DIR$/info-operator-add.html" />
-        <option value="$PROJECT_DIR$/info-depot-add.html" />
-        <option value="$PROJECT_DIR$/info-depot-edit.html" />
-        <option value="$PROJECT_DIR$/info-customer-edit.html" />
-        <option value="$PROJECT_DIR$/info-good-edit.html" />
-        <option value="$PROJECT_DIR$/info-operator-edit.html" />
-        <option value="$PROJECT_DIR$/info-depot.html" />
+        <option value="$PROJECT_DIR$/blade.js" />
       </list>
     </option>
   </component>
@@ -209,8 +216,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="width" value="1296" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -280,7 +287,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../weijuan" />
+    <property name="last_opened_file_path" value="D:/wamp/www/hanya" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/wamp64/www/invoicing/sale-order.html" />
@@ -359,18 +366,25 @@
       <workItem from="1482067028222" duration="8378000" />
       <workItem from="1482235067316" duration="5107000" />
       <workItem from="1482328504104" duration="5648000" />
-      <workItem from="1482413904603" duration="9065000" />
+      <workItem from="1482413904603" duration="9633000" />
+      <workItem from="1482504946226" duration="2538000" />
+      <workItem from="1482548805733" duration="53000" />
+      <workItem from="1482548952894" duration="610000" />
+      <workItem from="1482589062604" duration="7055000" />
+      <workItem from="1482651970150" duration="5477000" />
+      <workItem from="1482678075515" duration="2433000" />
+      <workItem from="1482752177050" duration="2677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128917000" />
+    <option name="totallyTimeSpent" value="150328000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17621776" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18527508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -405,20 +419,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/info-supplier-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="927">
-          <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/invoicing-blade.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/invoicing-index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -451,13 +451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-supplier.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="74" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -545,24 +538,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sale-order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="87" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/depot-change.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="23" column="99" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-company.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -584,10 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
           <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="71" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -595,10 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="23" column="93" selection-start-line="23" selection-start-column="93" selection-end-line="23" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -606,10 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
           <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="79" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -617,22 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
           <caret line="63" column="66" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setting-password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="37" column="87" selection-start-line="37" selection-start-column="87" selection-end-line="37" selection-end-column="87" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -640,7 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -648,30 +598,113 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-customer.html">
+    <entry file="file://$PROJECT_DIR$/purchase-return-add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="88" selection-start-line="8" selection-start-column="88" selection-end-line="8" selection-end-column="88" />
-          <folding />
+        <state relative-caret-position="91">
+          <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/purchase-order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="110" column="6" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-depot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-depot-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-good-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-good-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-good.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-depot-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/purchase-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="72" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/info-customer-add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="113" column="6" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
+        <state relative-caret-position="628">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/info-company-edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="88" />
+        <state relative-caret-position="624">
+          <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-supplier.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-supplier-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1079">
+          <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setting-password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sale-order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1586">
+          <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -684,52 +717,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/purchase-info.html">
+    <entry file="file://$PROJECT_DIR$/info-customer-edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="72" selection-end-column="22" />
+        <state relative-caret-position="1235">
+          <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blade.js">
+    <entry file="file://$PROJECT_DIR$/info-supplier-edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="140" column="40" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
-          <folding>
-            <marker date="1482420442700" expanded="true" signature="457:471" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/purchase-return-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+        <state relative-caret-position="1248">
+          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/purchase-in-depot-add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="76" />
+        <state relative-caret-position="1560">
+          <caret line="120" column="11" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/purchase-order.html">
+    <entry file="file://$PROJECT_DIR$/info-operator.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="110" column="6" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
+        <state relative-caret-position="871">
+          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-customer-edit.html">
+    <entry file="file://$PROJECT_DIR$/blade.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+        <state relative-caret-position="1195">
+          <caret line="215" column="1" selection-start-line="215" selection-start-column="1" selection-end-line="215" selection-end-column="1" />
+          <folding>
+            <marker date="1482683296839" expanded="true" signature="457:471" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-operator-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="61" column="77" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-operator-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="751">
+          <caret line="82" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -737,74 +778,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-operator-edit.html">
+    <entry file="file://$PROJECT_DIR$/info-company.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
+        <state relative-caret-position="167">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-operator-add.html">
+    <entry file="file://$PROJECT_DIR$/info-customer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-operator.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-good-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-good-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-good.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="83" column="76" selection-start-line="83" selection-start-column="76" selection-end-line="83" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-depot-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-depot-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-depot.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="69" column="76" selection-start-line="69" selection-start-column="76" selection-end-line="69" selection-end-column="76" />
+        <state relative-caret-position="699">
+          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
           <folding />
         </state>
       </provider>

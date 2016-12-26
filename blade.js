@@ -137,33 +137,46 @@ $(document).ready(function () {
 
     $('#save-button').click(function (e) {
         e.preventDefault();
-        var form = $('form[ajax-url]');
-        var url = form.attr('ajax-url');
-        if (!url) {
-            swal("系统错误","请联系管理员，url参数错误","error");
-        } else {
-            var data = form.serialize();
-            console.log(data);
-            $.ajax({
-                url: url,
-                data: data,
-                type: 'post',
-                dataType: 'json',
-                cache: false,
-                success: function (data) {
-                    if (data.errcode) {
-                        alert('操作失败');
-                    } else {
-                        alert('操作成功');
+        swal({
+            title: '确认保存吗?',
+            text: '',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确认保存",
+            cancelButtonText: '点错了'
+        }, function () {
+            var form = $('form[ajax-url]');
+            var url = form.attr('ajax-url');
+            if (!url) {
+                swal("系统错误","请联系管理员，url参数错误","error");
+            } else {
+                var data = form.serialize();
+                console.log(data);
+                $.ajax({
+                    url: url,
+                    data: data,
+                    type: 'post',
+                    dataType: 'json',
+                    cache: false,
+                    success: function (data) {
+                        if (data.errcode) {
+                            alert('操作失败');
+                        } else {
+                            alert('操作成功');
+                        }
+                    },
+                    error: function (e) {
+                        alert('未知错误');
+                        console.log(e.responseText);
                     }
-                },
-                error: function (e) {
-                    alert('未知错误');
-                    console.log(e.responseText);
-                }
-            })
-        }
+                })
+            }
+        })
     });
+
+    
 
     function isEmpty(e)
     {
@@ -178,5 +191,59 @@ $(document).ready(function () {
         return false;
     }
 });
+
+function initEditData(url,data) {
+    $.ajax({
+        url: url,
+        data: data,
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            if (data.errcode) {
+                swal("系统错误","信息初始化失败","error");
+            } else {
+                var info = data.data;
+                for (var i in info) {
+                    $('[name='+ i +']').val(info[i]);
+                }
+            }
+        },
+        error: function (e) {
+            swal("未知错误","请联系管理","error");
+            console.log(e.responseText);
+        }
+    })
+}
+
+function getUserInfo(url,callback) {
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            callback(data);
+        },
+        error: function (e) {
+            swal("未知错误","请联系管理员","error");
+            console.log(e.responseText);
+        }
+    })
+}
+
+function getListData(url,callback,data='') {
+    $.ajax({
+        url: url,
+        data: data,
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            callback(data);
+        },
+        error: function (e) {
+            swal("未知错误","请联系管理员","error");
+            console.log(e.responseText);
+        }
+    })
+}
 
 

@@ -23,7 +23,7 @@
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="customer-edit-form">
+                <form id="customer-edit-form" ajax-url="">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="customer-name">客户名称</label>
@@ -89,21 +89,10 @@
 <script src="blade.js"></script>
 <script>
     $(function () {
-        $.ajax({
-            url: '',
-            type: 'get',
-            dataType: 'json',
-            success: function (data) {
-                if (data.errcode) {
-                    swal("系统错误","信息初始化失败","error");
-                } else {
-                    console.log(data.data);
-                }
-            },
-            error: function (e) {
-                swal("未知错误","请联系管理","error");
-                console.log(e.responseText);
-            }
-        })
+        var url = '';
+        var data = {
+            customer_id: 'abc'
+        };
+        initEditData(url,data);
     })
 </script>

@@ -76,21 +76,8 @@
 <script src="blade.js"></script>
 <script>
     $(function () {
-        $.ajax({
-            url: '',
-            type: 'get',
-            dataType: 'json',
-            success: function (data) {
-                if (data.errcode) {
-                    swal("系统错误","信息初始化失败","error");
-                } else {
-                    console.log(data.data);
-                }
-            },
-            error: function (e) {
-                swal("未知错误","请联系管理","error");
-                console.log(e.responseText);
-            }
-        })
+        var url = '';
+        var id = '';
+        initEditData(url,id);
     })
 </script>
