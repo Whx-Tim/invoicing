@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
 <title>生活家居进销存管理系统-库存盘点</title>
 </head>
@@ -26,18 +27,18 @@
                         <div class="form-group">
                             <label>商品编号</label>
                             <div class="input-group">
-                                <input type="text" class="form-control col-md-10" id="good-id">
+                                <input type="text" class="form-control col-md-10" name="good_id" id="good-id">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-primary" id="select-button">选择</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#good-list">选择</button>
                                 </span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>盘点数</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="check-amount">
+                                <input type="text" class="form-control" name="check_amount" id="check-amount">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-success" id="add-button">增加</button>
+                                    <button type="button" class="btn btn-success" id="check-button">盘点</button>
                                 </span>
                             </div>
                         </div>
@@ -45,11 +46,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="good-name">商品名称</label>
-                            <input type="text" class="form-control" id="good-name" readonly>
+                            <input type="text" class="form-control" name="good_name" id="good-name" readonly>
                         </div>
                         <div class="form-group">
                             <label for="good-depot-amount">库存数量</label>
-                            <input type="text" class="form-control" id="good-depot-amount" readonly>
+                            <input type="text" class="form-control" name="d_amount" id="good-depot-amount" readonly>
                         </div>
                     </div>
                 </form>
@@ -73,15 +74,7 @@
                                     <th>商品尺寸</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                </tr>
+                            <tbody id="check">
                             </tbody>
                         </table>
                     </div>
@@ -102,26 +95,36 @@
                                     <th>商品名称</th>
                                     <th>盘点前库存数量</th>
                                     <th>已盘点数量</th>
-                                    <th>所在仓库</th>
                                     <th>商品单位</th>
                                     <th>商品类型</th>
                                     <th>商品尺寸</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                    <td>数据正在加载</td>
-                                </tr>
+                            <tbody id="is-check">
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-info btn-block" id="recheck-button">重新盘点</button>
+        </div>
+    </div>
+    <div class="modal fade" id="good-list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">商品列表</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="good-list select-list">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="info-good-add.jsp" class="btn btn-info"><i class="fa fa-plus"></i>添加</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>
@@ -131,4 +134,107 @@
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+    $.ajax({
+        url: "${ctx}/test/IERP_DepotAction_getnocheckgood.do",
+        type: "get",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var info = data.data;
+            for(var i in info) {
+                $('.good-list').append('<li><a href="javascript:;" onclick="selectGood($(this))" select-id="'+ info[i].good_id +'">'+ info[i].good_name +'</a></li>')
+            }
+        }
+    });
+
+    function selectGood(e) {
+        var id = e.attr('select-id');
+        var url = '${ctx}/test/IERP_GoodAction_fff.do';
+        var data = {
+            good_id: id
+        };
+        initEditData(url,data);
+        $('[name=good_id]').val(id);
+        $.ajax({
+            url: url,
+            type: 'get',
+            data: data,
+            dataType: 'json',
+            success: function (data) {
+                var info = data.data;
+                $('tbody#check').append('<tr>' +
+                        '<td>'+ info.good_id +'</td>' +
+                        '<td>'+ info.good_name +'</td>' +
+                        '<td>'+ info.d_amount +'</td>' +
+                        '<td>'+ info.good_unit +'</td>' +
+                        '<td>'+ info.good_type +'</td>' +
+                        '<td>'+ info.good_standard +'</td>' +
+                        '</tr>')
+            }
+        })
+    }
+
+    $('#check-button').click(function () {
+        $.ajax({
+            url: '${ctx}/test/IERP_DepotAction_Inventorygood.do',
+            data: {
+                good_id: $('[name=good_id]').val(),
+                check_amount: $('[name=check_amount]').val()
+            },
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                if (data.errcode) {
+                    swal('操作失败',data.errmsg,'error');
+                } else {
+                    console.log(data);
+                    swal({
+                        title:'操作成功',
+                        text: '',
+                        type: 'success'
+                    }, function () {
+                        var info = data.data;
+                        $('tbody#is-check').append('<tr>' +
+                                '<td>'+ info.good_id +'</td>' +
+                                '<td>'+ info.good_name +'</td>' +
+                                '<td>'+ info.d_amount +'</td>' +
+                                '<td>'+ info.check_amount +'</td>' +
+                                '<td>'+ info.good_unit +'</td>' +
+                                '<td>'+ info.good_type +'</td>' +
+                                '<td>'+ info.good_standard +'</td>' +
+                                '</tr>')
+                    })
+                }
+            }
+        })
+    });
+
+    $('#recheck-button').click(function () {
+        $.ajax({
+            url: '${ctx}/test/IERP_DepotAction_cleanInventorygood.do',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                if (data.errcode) {
+                    swal('操作失败',data.errmsg,'error');
+                } else {
+                    swal({
+                        title: '操作成功',
+                        text: '',
+                        type: 'success'
+                    }, function () {
+                        window.location.reload();
+                    })
+                }
+            },
+            error: function (e) {
+                swal('系统错误','','error');
+                console.log(e.responseText);
+            }
+
+        })
+    })
+</script>

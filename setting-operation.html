@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+    <title>生活家居进销存管理系统-操作记录</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>操作记录</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">系统管理</a></li>
+            <li class="active">操作记录</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>操作员ID</th>
+                            <th>操作时间</th>
+                            <th>操作活动</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <nav  style="text-align: center">
+                <ul class="pagination">
+                    <li><a href="javascript:;" onclick="pagePrevious()">&laquo;</a></li>
+                    <li><a href="javascript:;" onclick="pageNext()">&raquo;</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="blade.js"></script>
+<script>
+    var page = 10;
+    var page_number;
+    var page_now = 1;
+    var length;
+    var info;
+    $.ajax({
+        url: "${ctx}/test/IERP_UserAction_see.do",
+        type: "get",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            info = data.data;
+            length = info.length;
+            page_number = Math.ceil(length/page);
+            console.log(page_number);
+            for (var j=1;j<=page_number;j++) {
+                $('.pagination').children('li:last').before('<li><a href="javascript:;" onclick="pageChange('+ j +')">'+ j +'</a></li>')
+            }
+            showPage();
+        }
+    });
+
+
+    function pageChange(page_id) {
+        page_now = page_id;
+        showPage();
+    }
+
+    function pageNext()
+    {
+        if (page_now != length) {
+            page_now++;
+        }
+        showPage();
+    }
+
+    function pagePrevious()
+    {
+        if (page_now != 1){
+            page_now--;
+        }
+        showPage();
+    }
+
+    function showPage()
+    {
+        $('tbody').html('');
+        if (page_now == page_number) {
+            for(var i=page*(page_now-1);i<length;i++) {
+                console.log(info[i]);
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].operation_id +'</td>'+
+                        '<td>'+ info[i].operation_man +'</td>'+
+                        '<td>'+ info[i].operation_time +'</td>'+
+                        '<td>'+ info[i].operation_what +'</td>'+
+                        '</tr>');
+            }
+        } else {
+            for(var i=page*(page_now-1);i<page_now*page;i++) {
+                console.log(info[i]);
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].operation_id +'</td>'+
+                        '<td>'+ info[i].operation_man +'</td>'+
+                        '<td>'+ info[i].operation_time +'</td>'+
+                        '<td>'+ info[i].operation_what +'</td>'+
+                        '</tr>');
+            }
+        }
+    }
+</script>

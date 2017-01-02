@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+    <link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
+    <title>生活家居进销存管理系统-采购订单</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>采购订单编辑</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">采购管理</a></li>
+            <li><a href="purchase-info.jsp">采购订单</a></li>
+            <li class="active">采购订单编辑</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="purchase-order-preview">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>业务员</label>
+                            <input type="text" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-name-preview">供应商</label>
+                            <input type="text" class="form-control" name="supplier_name" id="supplier-name-preview" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>采购收货时间</label>
+                            <div class="input-append date form_datetime">
+                                <input type="text" class="form-control" id="purchase-date-preview" readonly value="" size="16">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-address-preview">采购收货地址</label>
+                            <input type="text" class="form-control" id="purchase-address-preview" placeholder="请输入采购收货地址">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>商品名称</th>
+                            <th>商品类型</th>
+                            <th>商品单位</th>
+                            <th>商品产地</th>
+                            <th>商品尺寸</th>
+                            <th>采购数量</th>
+                            <th>采购单价</th>
+                            <th>金额</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="purchase-order-form" ajax-url="${ctx}/test/IERP_PurchaseAction_updatePurchaseinfo.do">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label for="good-id">商品编号</label>
+                            <input type="text" name="good_id" id="good-id" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-name">商品名称</label>
+                            <input type="text" class="form-control" name="good_name" id="good-name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-type">商品类型</label>
+                            <input type="text" class="form-control" name="good_type" id="good-type" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-unit">商品单位</label>
+                            <input type="text" class="form-control" name="good_unit" id="good-unit" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-producing-area">商品产地</label>
+                            <input type="text" class="form-control" name="good_producing_area" id="good-producing-area" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="good-standard">商品尺寸</label>
+                            <input type="text" class="form-control" name="good_standard" id="good-standard" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-amount">采购数量</label>
+                            <input type="number" class="form-control" name="amount" id="purchase-amount" placeholder="请输入采购的商品数量">
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-price">采购单价</label>
+                            <input type="number" class="form-control" name="price" id="purchase-price" placeholder="请输入采购的商品成本价">
+                        </div>
+                        <div class="form-group">
+                            <label>金额</label>
+                            <input type="text" class="form-control" id="total-price" readonly>
+                        </div>
+                        <div class="from-group">
+                            <label for="purchase-notice">备注</label>
+                            <textarea name="pi_notice" id="purchase-notice" class="form-control" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="purchase_time" value="">
+                    <input type="hidden" name="purchase_address" value="">
+                    <input type="hidden" name="supplier_name" value="">
+                    <input type="hidden" name="supplier_id" value="">
+                    <input type="hidden" name="purchase_id" value="">
+                    <input type="hidden" name="pi_id" value="">
+                </form>
+            </div>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-success btn-block" id="save-button">修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="blade.js"></script>
+<script>
+    var route = window.location.href;
+    var id = route.split('=');
+    var supplier_name;
+    id = id[id.length-1];
+    console.log(id);
+    $.ajax({
+        url: '${ctx}/test/IERP_PurchaseAction_seeinf.do',
+        type: 'get',
+        data: {
+            purchase_id: id
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var supplier_id = data.purchase_data.supplier_id;
+            $.ajax({
+                url: '${ctx}/test/IERP_SupplierAction_find.do',
+                data: {
+                    supplier_id:supplier_id
+                },
+                async: false,
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    supplier_name = data.data.supplier_name;
+                }
+            });
+            $('#supplier-name-preview').val(supplier_name);
+            $('#purchase-date-preview').val(data.purchase_data.purchase_time);
+            $('#purchase-address-preview').val(data.purchase_data.purchase_address);
+            var info = data.data;
+            for(var i in info) {
+                $('tbody').append('<tr>' +
+                        '<td>'+ info[i].good_id +'</td>' +
+                        '<td>'+ info[i].good_name +'</td>' +
+                        '<td>'+ info[i].good_type +'</td>' +
+                        '<td>'+ info[i].good_unit +'</td>' +
+                        '<td>'+ info[i].good_producing_area +'</td>' +
+                        '<td>'+ info[i].good_standard +'</td>' +
+                        '<td>'+ info[i].amount +'</td>' +
+                        '<td>'+ info[i].price +'</td>' +
+                        '<td>'+ info[i].amount * info[i].price +'</td>' +
+                        '<td>'+ info[i].pi_notice +'</td>' +
+                        '<td><a href="javascript:;" class="btn btn-primary btn-sm" onclick="Edit($(this))" edit-id="'+ info[i].pi_id +'">编辑 <i class="fa fa-edit"></i></a><a href="javascript:;" class="btn btn-warning btn-sm" onclick="Delete($(this))" delete-id="'+ info[i].pi_id +'">删除 <i class="fa fa-trash-o"></i></a></td>'+
+                        '</tr>')
+            }
+        }
+    });
+
+    saveData(function (data) {
+        window.location.reload();
+    });
+
+    function Edit(e)
+    {
+        var pi_id = e.attr('edit-id');
+        var url = '${ctx}/test/IERP_PurchaseAction_seePurchaseinf.do';
+        var data = {
+            pi_id: pi_id
+        };
+        initEditData(url,data);
+        $('#total-price').val($('[name=amount]').val()*$('[name=price]').val());
+        $('#purchase-price').change(function () {
+            $('#total-price').val($(this).val()*$('#purchase-amount').val());
+        });
+        $('#purchase-amount').change(function () {
+            $('#total-price').val($(this).val()*$('#purchase-price').val());
+        })
+    }
+
+    function Delete(e) {
+        var id = e.attr("delete-id");
+        swal({
+            title: '确认删除吗?',
+            text: '删除后将永远无法恢复',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确认删除",
+            cancelButtonText: '点错了',
+            showLoaderOnConfirm: true
+        }, function () {
+            $.ajax({
+                url: '${ctx}/test/IERP_PurchaseAction_deletePurchaseinfo.do',
+                data: {
+                    pi_id: id
+                },
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.errcode) {
+                        swal('删除失败','','error');
+                    } else {
+                        swal({
+                            title: '删除成功',
+                            text: '',
+                            type: 'success'
+                        }, function () {
+                            window.location.reload();
+                        });
+                    }
+                }
+            });
+        });
+
+    }
+</script>

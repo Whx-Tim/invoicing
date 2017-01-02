@@ -23,7 +23,7 @@
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="depot-form" ajax-url="">
+                <form id="depot-form" ajax-url="${ctx}/test/IERP_DepotAction_update.do">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="depot-name">仓库名称</label>
@@ -37,12 +37,13 @@
                             <label for="depot-principal">仓库负责人</label>
                             <input type="text" class="form-control" name="depot_principal" id="depot-principal" placeholder="请输入仓库负责人名称">
                         </div>
+                        <input type="hidden" name="depot_id" value="">
                     </div>
                     <div class="col-md-6">
                         <button class="btn btn-success btn-block" id="save-button">保存</button>
                     </div>
                     <div class="col-md-6">
-                        <a href="info-depot.html" class="btn btn-danger btn-block">返回</a>
+                        <a href="info-depot.jsp" class="btn btn-danger btn-block">返回</a>
                     </div>
                 </form>
             </div>
@@ -56,9 +57,24 @@
 <script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
 <script>
-    $(function () {
-        var url = '';
-        var id  = '';
-        initEditData(url,id);
+    $.ajax({
+        url: '${ctx}/test/IERP_DepotAction_index.do',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var info = data.data[0];
+            for (var i in info) {
+                $('[name='+i+']').val(info[i]);
+            }
+        },
+        error: function (e) {
+            swal("未知错误","请联系管理","error");
+            console.log(e.responseText);
+        }
+    });
+
+    saveData(function () {
+        window.location.href = 'info-depot.jsp';
     })
 </script>

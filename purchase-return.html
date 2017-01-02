@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
 <title>生活家居进销存管理系统-采购退货</title>
 </head>
@@ -21,17 +22,15 @@
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <a href="purchase-return-add.html" class="btn btn-info">新增退货单 <i class="fa fa-plus"></i></a>
+                <a href="purchase-return-add.jsp" class="btn btn-info">新增退货单 <i class="fa fa-plus"></i></a>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>采购退货单编号</th>
-                                <th>退货日期</th>
                                 <th>供应商</th>
                                 <th>业务员</th>
                                 <th>总金额</th>
-                                <th>供应商联系人</th>
                                 <th>供应商电话</th>
                                 <th>供应商传真</th>
                                 <th>操作</th>
@@ -47,24 +46,14 @@
                                 <td>数据正在加载</td>
                                 <td>数据正在加载</td>
                                 <td>数据正在加载</td>
-                                <td>
-                                    <button class="btn btn-primary" id="edit-button">编辑 <i class="fa fa-edit"></i></button>
-                                    <button class="btn btn-info" id="view-button">查看 <i class="fa fa-eye"></i></button>
-                                    <button class="btn btn-danger" id="delete-button">删除 <i class="fa fa-trash-o"></i></button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <nav  style="text-align: center">
                     <ul class="pagination">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
+                        <li><a href="javascript:;" onclick="pagePrevious()">&laquo;</a></li>
+                        <li><a href="javascript:;" onclick="pageNext()">&raquo;</a></li>
                     </ul>
                 </nav>
             </div>
@@ -75,4 +64,87 @@
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+    var page = 5;
+    var page_number;
+    var page_now = 1;
+    var length;
+    var info;
+    $.ajax({
+        url: "${ctx}/test/IERP_PurchaseAction_see_sreturn.do",
+        type: "get",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            info = data.data;
+            length = info.length;
+            page_number = Math.ceil(length/page);
+            console.log(page_number);
+            for (var j=1;j<=page_number;j++) {
+                $('.pagination').children('li:last').before('<li><a href="javascript:;" onclick="pageChange('+ j +')">'+ j +'</a></li>')
+            }
+            showPage();
+        }
+    });
+
+    function View(e)
+    {
+        var id = e.attr('view-id');
+        window.location.href = 'purchase-return-view.jsp?id='+id;
+    }
+
+    function pageChange(page_id) {
+        page_now = page_id;
+        showPage();
+    }
+
+    function pageNext()
+    {
+        if (page_now != length) {
+            page_now++;
+        }
+        showPage();
+    }
+
+    function pagePrevious()
+    {
+        if (page_now != 1){
+            page_now--;
+        }
+        showPage();
+    }
+
+    function showPage()
+    {
+        $('tbody').html('');
+        if (page_now == page_number) {
+            for(var i=page*(page_now-1);i<length;i++) {
+                console.log(info[i]);
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].purchase_id +'</td>'+
+                        '<td>'+ info[i].supplier_name +'</td>'+
+                        '<td>'+ info[i].operator_id +'</td>'+
+                        '<td>'+ info[i].total_price +'</td>'+
+                        '<td>'+ info[i].supplier_tel +'</td>'+
+                        '<td>'+ info[i].supplier_fax +'</td>'+
+                        '<td><a href="javascript:;" class="btn btn-info btn-sm" onclick="View($(this))" view-id="'+ info[i].purchase_id +'">查看</a></td>'+
+                        '</tr>');
+            }
+        } else {
+            for(var i=page*(page_now-1);i<page_now*page;i++) {
+                console.log(info[i]);
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].purchase_id +'</td>'+
+                        '<td>'+ info[i].supplier_name +'</td>'+
+                        '<td>'+ info[i].operator_id +'</td>'+
+                        '<td>'+ info[i].total_price +'</td>'+
+                        '<td>'+ info[i].supplier_tel +'</td>'+
+                        '<td>'+ info[i].supplier_fax +'</td>'+
+                        '<td><a href="javascript:;" class="btn btn-info btn-sm" onclick="View($(this))" view-id="'+ info[i].purchase_id +'">查看</a></td>'+
+                        '</tr>');
+            }
+        }
+    }
+</script>

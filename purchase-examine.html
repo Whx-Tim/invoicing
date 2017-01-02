@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="blade.css">
+    <link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
+    <title>生活家居进销存管理系统-采购订单</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
+<div class="row">
+    <div class="col-md-2" id="sidebar"></div>
+    <div class="col-md-10">
+        <ol class="breadcrumb" style="margin-top: 50px">
+            <h1>采购订单审核</h1>
+            <li><a href="">首页</a></li>
+            <li><a href="">采购管理</a></li>
+            <li><a href="purchase-info.jsp">采购订单</a></li>
+            <li class="active">采购订单审核</li>
+        </ol>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="purchase-order-preview">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>业务员</label>
+                            <input type="text" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-name-preview">供应商</label>
+                            <input type="text" class="form-control" name="supplier_name" id="supplier-name-preview" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>采购收货时间</label>
+                            <div class="input-append date form_datetime">
+                                <input type="text" class="form-control" id="purchase-date-preview" readonly value="" size="16">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-address-preview">采购收货地址</label>
+                            <input type="text" class="form-control" id="purchase-address-preview" placeholder="请输入采购收货地址">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>商品名称</th>
+                            <th>商品类型</th>
+                            <th>商品单位</th>
+                            <th>商品产地</th>
+                            <th>商品尺寸</th>
+                            <th>采购数量</th>
+                            <th>采购单价</th>
+                            <th>金额</th>
+                            <th>备注</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-success btn-block" id="examine-button">审核通过</button>
+        </div>
+        <div class="col-sm-6">
+            <a href="purchase-info.jsp" class="btn btn-danger btn-block">返回</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="blade.js"></script>
+<script>
+    var route = window.location.href;
+    var id = route.split('=');
+    var supplier_name;
+    id = id[id.length-1];
+    console.log(id);
+    $.ajax({
+        url: '${ctx}/test/IERP_PurchaseAction_seeinf.do',
+        type: 'get',
+        data: {
+            purchase_id: id
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var supplier_id = data.purchase_data.supplier_id;
+            $.ajax({
+                url: '${ctx}/test/IERP_SupplierAction_find.do',
+                data: {
+                    supplier_id:supplier_id
+                },
+                async: false,
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    supplier_name = data.data.supplier_name;
+                }
+            });
+            $('#supplier-name-preview').val(supplier_name);
+            $('#purchase-date-preview').val(data.purchase_data.purchase_time);
+            $('#purchase-address-preview').val(data.purchase_data.purchase_address);
+            var info = data.data;
+            for(var i in info) {
+                $('tbody').append('<tr>' +
+                        '<td>'+ info[i].good_id +'</td>' +
+                        '<td>'+ info[i].good_name +'</td>' +
+                        '<td>'+ info[i].good_type +'</td>' +
+                        '<td>'+ info[i].good_unit +'</td>' +
+                        '<td>'+ info[i].good_producing_area +'</td>' +
+                        '<td>'+ info[i].good_standard +'</td>' +
+                        '<td>'+ info[i].amount +'</td>' +
+                        '<td>'+ info[i].price +'</td>' +
+                        '<td>'+ info[i].amount * info[i].price +'</td>' +
+                        '<td>'+ info[i].pi_notice +'</td>' +
+                        '</tr>')
+            }
+        }
+    });
+
+    $('#examine-button').click(function () {
+        $.ajax({
+            url: '${ctx}/test/IERP_PurchaseAction_examinePurchase.do',
+            data: {
+                purchase_id: id,
+                operator_id: operator_id
+            },
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                if (data.errcode) {
+                    swal('操作失败','','error');
+                } else {
+                    swal('操作成功','','success');
+                    window.location.href = 'purchase-info.jsp';
+                }
+            },
+            error: function (e) {
+                swal('系统错误','','error');
+                console.log(e.responseText);
+            }
+        })
+    })
+</script>

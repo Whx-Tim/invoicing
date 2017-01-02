@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
 <title>生活家居进销存管理系统-新增退货单</title>
 </head>
@@ -17,7 +18,7 @@
             <h1>新增退货单</h1>
             <li><a href="">首页</a></li>
             <li><a href="">销售管理</a></li>
-            <li><a href="sale-return.html">销售退货</a></li>
+            <li><a href="sale-return.jsp">销售退货</a></li>
             <li class="active">新增退货单</li>
         </ol>
         <div class="panel panel-default">
@@ -26,7 +27,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="sale-order-id-preview">销售订单编号</label>
-                            <input type="number" class="form-control" id="sale-order-id-preview" placeholder="请输入销售订单的编号">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="sale-order-id-preview" placeholder="请输入销售订单的编号">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sale-examine-list">选择</button>
+                                </span>
+                            </div>
+
                         </div>
                         <div class="form-group">
                             <label>退货客户</label>
@@ -42,48 +49,68 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="sale-return-form">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="form-group">
-                            <label for="good-id">商品编号</label>
-                            <input type="number" name="good_id" id="good-id" class="form-control" placeholder="请输入商品的编号">
-                        </div>
-                        <div class="form-group">
-                            <label for="good-name">商品名称</label>
-                            <input type="text" class="form-control" name="good_name" id="good-name" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="good-type">商品类型</label>
-                            <input type="text" class="form-control" name="good_type" id="good-type" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="good-unit">商品单位</label>
-                            <input type="text" class="form-control" name="good_unit" id="good-unit" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="good-producing-area">商品产地</label>
-                            <input type="text" class="form-control" name="good_producing_area" id="good-producing-area" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="good-standard">商品尺寸</label>
-                            <input type="text" class="form-control" name="good_standard" id="good-standard" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="return-amount">退回数量</label>
-                            <input type="text" class="form-control" name="return_amount" id="return-amount" placeholder="请输入退回的商品数量">
-                        </div>
-                        <div class="form-group">
-                            <label>金额</label>
-                            <input type="text" class="form-control" readonly>
-                        </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>商品名称</th>
+                            <th>商品类型</th>
+                            <th>商品单位</th>
+                            <th>商品产地</th>
+                            <th>商品尺寸</th>
+                            <th>销售数量</th>
+                            <th>销售单价</th>
+                            <th>金额</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="good-list">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>商品名称</th>
+                            <th>商品类型</th>
+                            <th>商品单位</th>
+                            <th>商品产地</th>
+                            <th>商品尺寸</th>
+                            <th>销售数量</th>
+                            <th>销售单价</th>
+                            <th>金额</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="good-return-list">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="sale-examine-list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">销售订单编号列表</h4>
                     </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-success btn-block" id="save-button">保存</button>
+                    <div class="modal-body">
+                        <ul class="sale-examine-list select-list">
+                        </ul>
                     </div>
-                    <div class="col-md-6">
-                        <a href="sale-return.html" class="btn btn-danger btn-block">返回</a>
+                    <div class="modal-footer">
+                        <!--<a href="info-good-add.jsp" class="btn btn-info"><i class="fa fa-plus"></i>添加</a>-->
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -92,4 +119,105 @@
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+
+    getSaleExamineList();
+
+    function getSaleExamineList()
+    {
+        $.ajax({
+            url: "${ctx}/test/IERP_Sale_OrderAction_seeYESexamine.do",
+            type: "get",
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                var info = data.data;
+                for(var i in info) {
+                    $('.sale-examine-list').append('<li><a href="javascript:;" onclick="selectSaleExamine($(this) )" select-id="'+ info[i].so_id +'" customer_name="'+ info[i].customer_name +'">'+ info[i].so_id +'</a></li>')
+                }
+            }
+        });
+    }
+
+    function selectSaleExamine(e)
+    {
+        var id = e.attr('select-id');
+        $('#sale-order-id-preview').val(id);
+        $.ajax({
+            url: '${ctx}/test/IERP_Sale_OrderAction_seereturninf.do',
+            type: 'get',
+            data: {
+                so_id: id
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                $('#customer-name-preview').val(e.attr('customer_name'));
+                var info = data.data;
+                for(var i in info) {
+                    $('tbody#good-list').append('<tr>' +
+                            '<td>'+ info[i].good_id +'</td>' +
+                            '<td>'+ info[i].good_name +'</td>' +
+                            '<td>'+ info[i].good_type +'</td>' +
+                            '<td>'+ info[i].good_unit +'</td>' +
+                            '<td>'+ info[i].good_producing_area +'</td>' +
+                            '<td>'+ info[i].good_standard +'</td>' +
+                            '<td>'+ info[i].si_amount +'</td>' +
+                            '<td>'+ info[i].si_sale_price +'</td>' +
+                            '<td>'+ info[i].si_amount * info[i].si_sale_price +'</td>' +
+                            '<td><a href="javascript:;" class="btn btn-primary btn-sm" onclick="Return($(this))" return-id="'+ info[i].si_id +'">退货</a></td>'+
+                            '</tr>')
+                }
+            }
+        });
+    }
+
+    function Return(e)
+    {
+        var id = e.attr('return-id');
+        e.parent().hide();
+        var html = e.parent().parent().html();
+        console.log(html);
+        swal({
+            title: '确认退货吗？',
+            text: '',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: '确认退货',
+            cancelButtonText: '点错了',
+            closeOnConfirm: false
+        }, function () {
+            e.parent().parent().fadeOut('slow',function () {
+                e.parent().parent().remove();
+            });
+            $.ajax({
+                url: '${ctx}/test/IERP_Sale_OrderAction_Sale_return.do',
+                type: 'get',
+                data: {
+                    si_id:id
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.errcode) {
+                        swal('操作失败','','error');
+                    } else {
+                        swal({
+                            title: '退货成功',
+                            text: '',
+                            type: 'success'
+                        }, function () {
+                            $('tbody#good-return-list').append('<tr>'+ html +'</tr>');
+                        })
+                    }
+                },
+                error: function (e) {
+                    swal('系统错误','','error');
+                    console.log(e.responseText);
+                }
+            })
+        })
+    }
+</script>

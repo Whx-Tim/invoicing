@@ -15,7 +15,7 @@
     <div class="col-md-2" id="sidebar"></div>
     <div class="col-md-10">
         <ol class="breadcrumb" style="margin-top: 50px">
-            <h1>新增销售入库单</h1>
+            <h1>新增采购入库单</h1>
             <li><a href="">首页</a></li>
             <li><a href="">销售管理</a></li>
             <li><a href="purchase-in-depot.html">销售入库</a></li>
@@ -27,7 +27,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="purchase-in-depot-id-preview">采购订单编号</label>
-                            <input type="text" class="form-control" id="purchase-in-depot-id-preview" placeholder="请输入采购订单的编号">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="purchase-in-depot-id-preview" placeholder="请输入采购订单的编号">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" >选择</button>
+                                </span>
+                            </div>
+
                         </div>
                         <div class="form-group">
                             <label for="in-depot-preview">收入仓库</label>
@@ -41,10 +47,40 @@
                         </div>
                         <div class="form-group">
                             <label for="supplier-name-preview">供应商</label>
-                            <input type="text" class="form-control" id="supplier-name-preview" readonly>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="supplier-name-preview" readonly>
+                            </div>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#supplier-list">选择</button>
+                            </span>
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>商品名称</th>
+                            <th>商品类型</th>
+                            <th>商品单位</th>
+                            <th>商品产地</th>
+                            <th>商品尺寸</th>
+                            <th>采购数量</th>
+                            <th>采购单价</th>
+                            <th>金额</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="panel panel-default">
@@ -53,7 +89,12 @@
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="good-id">商品编号</label>
-                            <input type="number" name="good_id" id="good-id" class="form-control" placeholder="请输入商品的编号">
+                            <div class="input-group">
+                                <input type="number" name="good_id" id="good-id" class="form-control" placeholder="请输入商品的编号">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#good-list">选择</button>
+                                </span>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="good-name">商品名称</label>
@@ -85,17 +126,56 @@
                         </div>
                         <div class="form-group">
                             <label>金额</label>
-                            <input type="text" class="form-control" id="in-depot-total-price" readonly>
+                            <input type="text" class="form-control" id="total-price" readonly>
                         </div>
                     </div>
                     <input type="hidden" name="purchase_in_depot_id">
                     <input type="hidden" name="in_depot">
                 </form>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <button class="btn btn-success btn-block" id="save-button">入库</button>
                 </div>
-                <div class="col-md-6">
-                    <a href="purchase-in-depot.html" class="btn btn-danger btn-block">返回</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success btn-block" id="all-save">保存</button>
+        </div>
+        <div class="col-md-6">
+            <a href="javascript:;" class="btn btn-danger btn-block" id="return-button">返回</a>
+        </div>
+    </div>
+    <div class="modal fade" id="good-list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">商品列表</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="good-list select-list">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="info-good-add.jsp" class="btn btn-info"><i class="fa fa-plus"></i>添加</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="supplier-list" tabindex="-1" role="dialog" aria-labelledby="supplier-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="supplier-modal">供应商列表</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="supplier-list select-list">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="info-supplier-add.jsp" class="btn btn-info"><i class="fa fa-plus"></i>添加</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>

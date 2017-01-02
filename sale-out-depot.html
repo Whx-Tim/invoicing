@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
 <title>生活家居进销存管理系统-销售出库</title>
 </head>
@@ -21,17 +22,21 @@
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <a href="sale-out-depot-add.html" class="btn btn-info">新增出库单 <i class="fa fa-plus"></i></a>
-                <div class="table-responsive">
+                <div class="table-responsive" style="width: 2000px">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>出库单编号</th>
+                                <th>销售单编号</th>
+                                <th>订单创建日期</th>
                                 <th>出库日期</th>
+                                <th>出库状态</th>
                                 <th>仓库编号</th>
+                                <th>仓库名称</th>
                                 <th>业务员</th>
-                                <th>订单编号</th>
                                 <th>客户</th>
+                                <th>客户联系人</th>
+                                <th>客户电话</th>
+                                <th>客户传真</th>
                                 <th>出库备注</th>
                             </tr>
                         </thead>
@@ -53,18 +58,13 @@
                         </tbody>
                     </table>
                 </div>
-                <nav  style="text-align: center">
-                    <ul class="pagination">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </nav>
             </div>
+            <nav  style="text-align: center">
+                <ul class="pagination">
+                    <li><a href="javascript:;" onclick="pagePrevious()">&laquo;</a></li>
+                    <li><a href="javascript:;" onclick="pageNext()">&raquo;</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -72,4 +72,176 @@
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+    var page = 5;
+    var page_number;
+    var page_now = 1;
+    var length;
+    var info;
+    $.ajax({
+        url: "${ctx}/test/IERP_Sale_OrderAction_seeYESexamineSale.do",
+        type: "get",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            info = data.data;
+            length = info.length;
+            page_number = Math.ceil(length/page);
+            console.log(page_number);
+            for (var j=1;j<=page_number;j++) {
+                $('.pagination').children('li:last').before('<li><a href="javascript:;" onclick="pageChange('+ j +')">'+ j +'</a></li>')
+            }
+            showPage();
+        }
+    });
+
+    function Examine(e) {
+        var id = e.attr('examine-id');
+        swal({
+            title: '确认出库吗？',
+            text: '',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确认出库",
+            cancelButtonText: '点错了',
+            showLoaderOnConfirm: true
+        }, function () {
+            $.ajax({
+                url: "${ctx}/test/IERP_Sale_OrderAction_examineSale_Out_Depot.do",
+                data: {
+                    so_id: id,
+                    operator_id: operator_id
+                },
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.errcode) {
+                        swal('操作失败','','error');
+                    } else {
+                        swal({
+                            title: '操作成功',
+                            text: '',
+                            type: 'success'
+                        }, function () {
+                            window.location.reload();
+                        })
+                    }
+                }
+            })
+        })
+    }
+
+    function FallBack(e)
+    {
+        var id = e.attr('back-id');
+        swal({
+            title: '确认撤回出库吗？',
+            text: '',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确认",
+            cancelButtonText: '点错了',
+            showLoaderOnConfirm: true
+        }, function () {
+            $.ajax({
+                url: "${ctx}/test/IERP_Sale_OrderAction_examineFallback.do",
+                data: {
+                    so_id: id,
+                    operator_id: operator_id
+                },
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.errcode) {
+                        swal('操作失败','','error');
+                    } else {
+                        swal({
+                            title: '操作成功',
+                            text: '',
+                            type: 'success'
+                        }, function () {
+                            window.location.reload();
+                        })
+                    }
+                }
+            })
+        })
+    }
+
+    function pageChange(page_id) {
+        page_now = page_id;
+        showPage();
+    }
+
+    function pageNext()
+    {
+        if (page_now != length) {
+            page_now++;
+        }
+        showPage();
+    }
+
+    function pagePrevious()
+    {
+        if (page_now != 1){
+            page_now--;
+        }
+        showPage();
+    }
+
+    function showPage()
+    {
+        $('tbody').html('');
+        if (page_now == page_number) {
+            for(var i=page*(page_now-1);i<length;i++) {
+                console.log(info[i]);
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].so_id +'</td>'+
+                        '<td>'+ info[i].so_date +'</td>'+
+                        '<td>'+ info[i].od_date +'</td>'+
+                        '<td>'+ info[i].od_examine +'</td>'+
+                        '<td>'+ info[i].depot_idd +'</td>'+
+                        '<td>'+ info[i].depot_name +'</td>'+
+                        '<td>'+ info[i].operator_id +'</td>'+
+                        '<td>'+ info[i].customer_name +'</td>'+
+                        '<td>'+ info[i].customer_linkman +'</td>'+
+                        '<td>'+ info[i].customer_phone +'</td>'+
+                        '<td>'+ info[i].customer_fax +'</td>'+
+                        '<td>'+ info[i].od_notice +'</td>'+
+                        '<td><a href="javascript:;" class="btn btn-info btn-sm" onclick="Examine($(this))" examine-id="'+ info[i].so_id +'">审核出库</a><a href="javascript:;" class="btn btn-danger btn-sm" onclick="FallBack($(this))" back-id="'+ info[i].so_id +'">撤回出库</a></td>'+
+                        '</tr>');
+                if (info[i].od_examine == 'S') {
+                    $('a[examine-id='+ info[i].so_id +']').parent().hide();
+                }
+            }
+        } else {
+            for(var i=page*(page_now-1);i<page_now*page;i++) {
+                console.log(info[i]);
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].so_id +'</td>'+
+                        '<td>'+ info[i].so_date +'</td>'+
+                        '<td>'+ info[i].od_date +'</td>'+
+                        '<td>'+ info[i].od_examine +'</td>'+
+                        '<td>'+ info[i].depot_idd +'</td>'+
+                        '<td>'+ info[i].depot_name +'</td>'+
+                        '<td>'+ info[i].operator_id +'</td>'+
+                        '<td>'+ info[i].customer_name +'</td>'+
+                        '<td>'+ info[i].customer_linkman +'</td>'+
+                        '<td>'+ info[i].customer_phone +'</td>'+
+                        '<td>'+ info[i].customer_fax +'</td>'+
+                        '<td>'+ info[i].od_notice +'</td>'+
+                        '<td><a href="javascript:;" class="btn btn-info btn-sm" onclick="Examine($(this))" examine-id="'+ info[i].so_id +'">审核出库</a><a href="javascript:;" class="btn btn-danger btn-sm" onclick="FallBack($(this))" back-id="'+ info[i].so_id +'">撤回出库</a></td>'+
+                        '</tr>');
+                if (info[i].od_examine == 'S') {
+                    $('a[examine-id='+ info[i].so_id +']').parent().hide();
+                }
+            }
+        }
+    }
+</script>

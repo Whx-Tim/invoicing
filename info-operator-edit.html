@@ -18,12 +18,12 @@
             <h1>编辑用户</h1>
             <li><a href="">首页</a></li>
             <li><a href="">资料管理</a></li>
-            <li><a href="info-operator.html">用户信息管理</a></li>
+            <li><a href="info-operator.jsp">用户信息管理</a></li>
             <li class="active">编辑用户</li>
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="operator-form" ajax-url="">
+                <form id="operator-form" ajax-url="${ctx}/test/IERP_OperatorAction_update.do">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="operator-name">业务员名称</label>
@@ -32,13 +32,13 @@
                         <div class="form-group">
                             <label for="operator-sex">业务员性别</label>
                             <select name="operator_sex" id="operator-sex" class="form-control">
-                                <option value="1">男</option>
-                                <option value="2">女</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="operator-phone">业务员电话</label>
-                            <input type="number" class="form-control" name="operator_phone" id="operator-phone" placeholder="请输入业务员电话">
+                            <input type="number" class="form-control" name="operator_tel" id="operator-phone" placeholder="请输入业务员电话">
                         </div>
                         <div class="form-group">
                             <label for="operator-address">业务员地址</label>
@@ -50,19 +50,20 @@
                         </div>
                         <div class="form-group">
                             <label for="operator-id-number">业务员身份证号码</label>
-                            <input type="text" class="form-control" name="operator_id_number" id="operator-id-number" placeholder="请输入业务员身份证号码">
+                            <input type="text" class="form-control" name="operator_ID_number" id="operator-id-number" placeholder="请输入业务员身份证号码">
                         </div>
                         <div class="form-group">
                             <label for="operator-position">业务员职位</label>
                             <input type="text" class="form-control" name="operator_position" id="operator-position" placeholder="请输入业务员职位">
                         </div>
+                        <input type="hidden" name="operator_id">
                     </div>
                 </form>
                 <div class="col-md-6">
-                    <button class="btn btn-success btn-block">保存</button>
+                    <button class="btn btn-success btn-block" id="save-button">保存</button>
                 </div>
                 <div class="col-md-6">
-                    <a href="info-operator.html" class="btn btn-danger btn-block">返回</a>
+                    <a href="info-operator.jsp" class="btn btn-danger btn-block">返回</a>
                 </div>
             </div>
         </div>
@@ -76,8 +77,18 @@
 <script src="blade.js"></script>
 <script>
     $(function () {
-        var url = '';
-        var id = '';
-        initEditData(url,id);
+        var route = window.location.href;
+        var id = route.split('=');
+        id = id[id.length-1];
+        console.log(id);
+        var url = '${ctx}/test/IERP_OperatorAction_find.do';
+        var data = {
+            operator_id: id
+        };
+        initEditData(url,data);
+    });
+
+    saveData(function () {
+        window.location.href = 'info-operator.jsp';
     })
 </script>

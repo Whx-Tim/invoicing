@@ -18,12 +18,12 @@
             <h1>编辑供应商信息</h1>
             <li><a href="">首页</a></li>
             <li><a href="">资料管理</a></li>
-            <li><a href="info-supplier.html">供应商信息管理</a></li>
+            <li><a href="info-supplier.jsp">供应商信息管理</a></li>
             <li class="active">编辑供应商信息</li>
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="supplier-form">
+                <form id="supplier-form" ajax-url="${ctx}/test/IERP_SupplierAction_update.do">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="supplier-name">供应商名称</label>
@@ -43,14 +43,14 @@
                         </div>
                         <div class="form-group">
                             <label for="supplier-phone">供应商电话</label>
-                            <input type="text" class="form-control" name="supplier_phone" id="supplier-phone" placeholder="请输入供应商的电话">
+                            <input type="text" class="form-control" name="supplier_tel" id="supplier-phone" placeholder="请输入供应商的电话">
                         </div>
                         <div class="form-group">
                             <label for="supplier-type">供应商类型</label>
                             <select name="supplier_type" id="supplier-type" class="form-control">
-                                <option value="1">木料家居供应商</option>
-                                <option value="2">钢材家居供应商</option>
-                                <option value="3">其他</option>
+                                <option value="木料家居供应商">木料家居供应商</option>
+                                <option value="钢材家居供应商">钢材家居供应商</option>
+                                <option value="其他">其他</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -63,23 +63,24 @@
                         </div>
                         <div class="form-group">
                             <label for="supplier-ibank">供应商银行账号</label>
-                            <input type="text" class="form-control" name="supplier_ibank" id="supplier-ibank" placeholder="请输入供应商的银行账号">
+                            <input type="text" class="form-control" name="supplier_iban" id="supplier-ibank" placeholder="请输入供应商的银行账号">
                         </div>
                         <div class="form-group">
                             <label for="supplier-depot-add">供应商仓库地址</label>
-                            <input type="text" class="form-control" name="supplier_depot_add" id="supplier-depot-add" placeholder="请输入供应商的仓库地址">
+                            <input type="text" class="form-control" name="supplier_storage_add" id="supplier-depot-add" placeholder="请输入供应商的仓库地址">
                         </div>
                         <div class="form-group">
                             <label for="supplier-depot-phone">供应商仓库电话</label>
-                            <input type="text" class="form-control" name="supplier_depot_phone" id="supplier-depot-phone" placeholder="请输入供应商的仓库电话">
+                            <input type="text" class="form-control" name="supplier_storage_tel" id="supplier-depot-phone" placeholder="请输入供应商的仓库电话">
                         </div>
+                        <input type="hidden" name="supplier_id">
                     </div>
                 </form>
                 <div class="col-md-6">
-                    <button class="btn btn-success btn-block">保存</button>
+                    <button class="btn btn-success btn-block" id="save-button">保存</button>
                 </div>
                 <div class="col-md-6">
-                    <a href="info-supplier.html" class="btn btn-danger btn-block">返回</a>
+                    <a href="info-supplier.jsp" class="btn btn-danger btn-block">返回</a>
                 </div>
             </div>
         </div>
@@ -93,8 +94,18 @@
 <script src="blade.js"></script>
 <script>
     $(function () {
-        var url = '';
-        var id  = '';
-        initEditData(url,id);
-    })
+        var route = window.location.href;
+        var id = route.split('=');
+        id = id[id.length-1];
+        console.log(id);
+        var url = '${ctx}/test/IERP_SupplierAction_find.do';
+        var data = {
+            supplier_id: id
+        };
+        initEditData(url,data);
+
+        saveData(function () {
+            window.location.href = 'info-supplier.jsp';
+        })
+    });
 </script>

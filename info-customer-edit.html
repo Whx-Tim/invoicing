@@ -18,12 +18,12 @@
             <h1>编辑客户信息</h1>
             <li><a href="">首页</a></li>
             <li><a href="">资料管理</a></li>
-            <li><a href="info-customer.html">客户信息管理</a></li>
+            <li><a href="info-customer.jsp">客户信息管理</a></li>
             <li class="active">编辑客户信息</li>
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="customer-edit-form" ajax-url="">
+                <form id="customer-edit-form" ajax-url="${ctx}/test/IERP_CustomerAction_update.do">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="customer-name">客户名称</label>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="form-group">
                             <label for="customer-phone">客户电话</label>
-                            <input type="number" class="form-control" name="customer_phone" id="customer-phone" placeholder="请输入客户电话">
+                            <input type="number" class="form-control" name="customer_tel" id="customer-phone" placeholder="请输入客户电话">
                         </div>
                         <div class="form-group">
                             <label for="customer-fax">客户传真</label>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label for="customer-ibank">客户银行账号</label>
-                            <input type="text" class="form-control" name="customer_ibank" id="customer-ibank" placeholder="请输入客户银行账号">
+                            <input type="text" class="form-control" name="customer_iban" id="customer-ibank" placeholder="请输入客户银行账号">
                         </div>
                         <div class="form-group">
                             <label for="customer-level">客户等级</label>
@@ -69,12 +69,13 @@
                                 <option value="3">3</option>
                             </select>
                         </div>
+                        <input type="hidden" name="customer_id" value="">
                     </div>
                     <div class="col-md-6">
                         <button class="btn btn-success btn-block" id="save-button">保存</button>
                     </div>
                     <div class="col-md-6">
-                        <a href="info-customer.html" class="btn btn-danger btn-block">返回</a>
+                        <a href="info-customer.jsp" class="btn btn-danger btn-block">返回</a>
                     </div>
                 </form>
             </div>
@@ -89,10 +90,18 @@
 <script src="blade.js"></script>
 <script>
     $(function () {
-        var url = '';
+        var route = window.location.href;
+        var id = route.split('=');
+        id = id[id.length-1];
+        console.log(id);
+        var url = '${ctx}/test/IERP_CustomerAction_find.do';
         var data = {
-            customer_id: 'abc'
+            customer_id: id
         };
         initEditData(url,data);
+    })
+
+    saveData(function () {
+        window.location.href = 'info-customer.jsp';
     })
 </script>

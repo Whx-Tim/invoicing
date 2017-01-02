@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
 <title>生活家居进销存管理系统-新增入库单</title>
 </head>
@@ -17,7 +18,7 @@
             <h1>新增入库单</h1>
             <li><a href="">首页</a></li>
             <li><a href="">库存管理</a></li>
-            <li><a href="depot-in.html">入库</a></li>
+            <li><a href="depot-in.jsp">入库</a></li>
             <li class="active">新增入库单</li>
         </ol>
         <div class="panel panel-default">
@@ -40,11 +41,36 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="depot-in-form">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>商品名称</th>
+                            <th>商品类型</th>
+                            <th>商品单位</th>
+                            <th>商品产地</th>
+                            <th>商品尺寸</th>
+                            <th>入库数量</th>
+                            <th>单价</th>
+                            <th>金额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="depot-in-form" ajax-url="${ctx}/test/IERP_DepotAction_saveindepot.do">
                     <div class="col-md-8 col-md-offset-2">
-                        <div class="form-group">
-                            <label for="good-id">商品编号</label>
-                            <input type="number" name="good_id" id="good-id" class="form-control" placeholder="请输入商品的编号">
+                        <div class="input-group">
+                            <input type="text" name="good_id" id="good-id" class="form-control" placeholder="请输入商品的编号">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#good-list">选择</button>
+                                </span>
                         </div>
                         <div class="form-group">
                             <label for="good-name">商品名称</label>
@@ -68,28 +94,50 @@
                         </div>
                         <div class="form-group">
                             <label for="ds-amount">库存数量</label>
-                            <input type="text" class="form-control" name="ds_amount" id="ds-amount" readonly>
+                            <input type="text" class="form-control" name="d_amount" id="ds-amount" readonly>
                         </div>
                         <div class="form-group">
                             <label for="in-amount">入库数量</label>
-                            <input type="number" class="form-control" name="in_amount" id="in-amount">
+                            <input type="number" class="form-control" name="amount" id="in-amount">
                         </div>
                         <div class="form-group">
                             <label for="good-price">单价</label>
-                            <input type="number" class="form-control" name="good_price" id="good-price">
+                            <input type="number" class="form-control" name="price" id="good-price">
                         </div>
                         <div class="form-group">
-                            <label for="good-total-price">金额</label>
-                            <input type="text" class="form-control" name="good_total_price" id="good-total-price" readonly>
+                            <label for="total-price">金额</label>
+                            <input type="text" class="form-control" name="good_total_price" id="total-price" readonly>
                         </div>
+                        <input type="hidden" name="purchase_id" value="">
                     </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-success btn-block" id="save-button">保存</button>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="depot-in.html" class="btn btn-danger btn-block">返回</a>
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-success btn-block" id="save-button">添加</button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success btn-block" id="all-save">保存</button>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-danger btn-block" id="return-button">返回</button>
+        </div>
+    </div>
+    <div class="modal fade" id="good-list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">商品列表</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="good-list select-list">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="info-good-add.jsp" class="btn btn-info"><i class="fa fa-plus"></i>添加</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
             </div>
         </div>
     </div>
@@ -98,4 +146,120 @@
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+    $('#good-price').change(function () {
+        $('#total-price').val($(this).val()*$('#in-amount').val());
+    });
+    $('#in-amount').change(function () {
+        $('#total-price').val($(this).val()*$('#good-price').val());
+    })
+
+    $.ajax({
+        url: "${ctx}/test/IERP_GoodAction_index.do",
+        type: "get",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var info = data.data;
+            for(var i in info) {
+                $('.good-list').append('<li><a href="javascript:;" onclick="selectGood($(this))" select-id="'+ info[i].good_id +'">'+ info[i].good_name +'</a></li>')
+            }
+        }
+    });
+
+    function selectGood(e) {
+        var id = e.attr('select-id');
+        var url = '${ctx}/test/IERP_GoodAction_find.do';
+        var data = {
+            good_id: id
+        };
+        initEditData(url,data);
+        $('[name=good_id]').val(id);
+    }
+
+    saveData(function (data) {
+        console.log(data.data);
+        $('[name=purchase_id]').val(data.purchase_id);
+        $('tbody').append('<tr>' +
+                '<td>'+ $('[name=good_id]').val() +'</td>' +
+                '<td>'+ $('[name=good_name]').val() +'</td>' +
+                '<td>'+ $('[name=good_type]').val() +'</td>' +
+                '<td>'+ $('[name=good_unit]').val() +'</td>' +
+                '<td>'+ $('[name=good_producing_area]').val() +'</td>' +
+                '<td>'+ $('[name=good_standard]').val() +'</td>' +
+                '<td>'+ $('[name=amount]').val() +'</td>' +
+                '<td>'+ $('[name=price]').val() +'</td>' +
+                '<td>'+ $('#total-price').val() +'</td>' +
+                '</tr>')
+    });
+
+    $('#return-button').click(function () {
+        swal({
+            title: '确认返回?',
+            text: '您的信息还没有保存，确认不保存吗?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: '返回，不保存',
+            cancelButtonText: '点错了',
+            closeOnConfirm: false
+        }, function () {
+            $.ajax({
+                url: '${ctx}/test/IERP_DepotAction_deleteindepot.do',
+                type: 'get',
+                data: {
+                    purchase_id: $('[name=purchase_id]').val()
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.errcode) {
+                        swal('操作失败','','error');
+                    } else {
+                        swal('操作成功','','success');
+                        window.location.href = 'depot-in.jsp';
+                    }
+                },
+                error: function (e) {
+                    swal('系统错误','','error');
+                    console.log(e.responseText);
+                }
+            })
+        })
+    });
+
+    $('#all-save').click(function () {
+        swal({
+            title: '确认保存?',
+            text: '保存入库单的所有信息',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: '确认保存',
+            cancelButtonText: '点错了',
+            closeOnConfirm: false
+        }, function () {
+            $.ajax({
+                url: '${ctx}/test/IERP_DepotAction_examineOrder.do',
+                data: {
+                    purchase_id: $('[name=purchase_id]').val()
+                },
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.errcode) {
+                        swal('操作失败','','error');
+                    } else {
+                        swal('操作成功','','success');
+                        window.location.href = 'depot-in.jsp';
+                    }
+                },
+                error: function (e) {
+                    swal('系统错误','','error');
+                    console.log(e.responseText);
+                }
+            })
+        })
+    })
+</script>

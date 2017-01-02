@@ -6,6 +6,7 @@
     <title>生活家居进销存管理系统</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel="stylesheet" href="company.css">
     <link rel="stylesheet" href="blade.css">
 </head>
@@ -27,30 +28,30 @@
                 <div class="company-list-group">
                     <div class="company-info-item">
                         <label>企业名称:</label>
-                        <p>数据正在加载....</p>
+                        <p id="company_name">数据正在加载....</p>
                     </div>
                     <div class="company-info-item">
                         <label>企业邮箱:</label>
-                        <p>数据正在加载....</p>
+                        <p id="company_email">数据正在加载....</p>
                     </div>
                     <div class="company-info-item">
                         <label>企业电话:</label>
-                        <p>数据正在加载....</p>
+                        <p id="company_tel">数据正在加载....</p>
                     </div>
                     <div class="company-info-item">
                         <label>企业地址:</label>
-                        <p>数据正在加载....</p>
+                        <p id="company_address">数据正在加载....</p>
                     </div>
                     <div class="company-info-item">
                         <label>企业法人代表:</label>
-                        <p>数据正在加载....</p>
+                        <p id="company_legal_person">数据正在加载....</p>
                     </div>
                     <div class="company-info-item">
                         <label>企业创立时间:</label>
-                        <p>数据正在加载....</p>
+                        <p id="company_created_time">数据正在加载....</p>
                     </div>
                 </div>
-                <a href="info-company-edit.html" class="btn btn-primary btn-block btn-lg" style="margin-top: 20px">编辑</a>
+                <a href="info-company-edit.jsp" class="btn btn-primary btn-block btn-lg" style="margin-top: 20px">编辑</a>
             </div>
         </div>
     </div>
@@ -59,4 +60,22 @@
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+    $.ajax({
+        url: '${ctx}/test/IERP_CompanyAction_index.do',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            var info = data.data;
+            for (var i in info) {
+                $('#'+i).html(info[i]);
+            }
+        },
+        error: function (e) {
+            swal("未知错误","请联系管理","error");
+            console.log(e.responseText);
+        }
+    })
+</script>

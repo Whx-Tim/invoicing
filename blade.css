@@ -122,3 +122,20 @@ body {
 .table-responsive {
     width: 1500px;
 }
+
+.select-list {
+    list-style: none;
+    padding: 10px 25px;
+}
+
+.select-list li {
+    display: block;
+    font-size: 20px;
+}
+.select-list li:hover {
+    color: #ffffff;
+    background-color: rgb(200,200,200);
+}
+.select-list li a {
+    text-decoration: none;
+}

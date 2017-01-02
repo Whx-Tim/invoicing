@@ -59,13 +59,8 @@
             </div>
             <nav  style="text-align: center">
                 <ul class="pagination">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
+                    <li><a href="javascript:;" onclick="pagePrevious()">&laquo;</a></li>
+                    <li><a href="javascript:;" onclick="pageNext()">&raquo;</a></li>
                 </ul>
             </nav>
         </div>
@@ -77,3 +72,118 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 <script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+    var page = 5;
+    var page_number;
+    var page_now = 1;
+    var length;
+    var info;
+    $.ajax({
+        url: "${ctx}/test/IERP_OperatorAction_index.do",
+        type: "get",
+        dataType: 'json',
+        success: function (data) {
+            info = data.data;
+            length = info.length;
+            page_number = Math.ceil(length/page);
+            for (var j=1;j<=page_number;j++) {
+                $('.pagination').children('li:last').before('<li><a href="javascript:;" onclick="pageChange('+ j +')">'+ j +'</a></li>')
+            }
+            showPage();
+
+        }
+    })
+
+    function Delete(e) {
+        var id = e.attr("delete-id");
+        swal({
+            title: '确认删除吗?',
+            text: '删除后将永远无法恢复',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确认删除",
+            cancelButtonText: '点错了',
+            showLoaderOnConfirm: true
+        }, function () {
+            $.ajax({
+                url: '${ctx}/test/IERP_OperatorAction_delete.do',
+                data: {
+                    operator: id
+                },
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.errcode) {
+                        swal('删除失败','','error');
+                    } else {
+                        swal('删除成功','','success');
+                        window.location.reload();
+                    }
+                }
+            });
+        });
+
+    }
+
+    function Edit(e) {
+        var id = e.attr("edit-id");
+        window.location.href = 'info-operator-edit.jsp?id='+id;
+    }
+
+    function pageChange(page_id) {
+        page_now = page_id;
+        showPage();
+    }
+
+    function pageNext()
+    {
+        if (page_now != length) {
+            page_now++;
+        }
+        showPage();
+    }
+
+    function pagePrevious()
+    {
+        if (page_now != 1){
+            page_now--;
+        }
+        showPage();
+    }
+
+    function showPage()
+    {
+        $('tbody').html('');
+        if (page_now == page_number) {
+            for(var i=page*(page_now-1);i<length;i++) {
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].operator_id +'</td>'+
+                        '<td>'+ info[i].operator_name +'</td>'+
+                        '<td>'+ info[i].operator_sex +'</td>'+
+                        '<td>'+ info[i].operator_tel +'</td>'+
+                        '<td>'+ info[i].operator_address +'</td>'+
+                        '<td>'+ info[i].operator_postcode +'</td>'+
+                        '<td>'+ info[i].operator_ID_number +'</td>'+
+                        '<td>'+ info[i].operator_position +'</td>'+
+                        '<td><a href="javascript:;" class="btn btn-primary btn-sm" onclick="Edit($(this))" edit-id="'+ info[i].operator_id +'">编辑 <i class="fa fa-edit"></i></a><a href="javascript:;" class="btn btn-warning btn-sm" onclick="Delete($(this))" delete-id="'+ info[i].operator_id +'">删除 <i class="fa fa-trash-o"></i></a></td>'+
+                        '</tr>');
+            }
+        } else {
+            for(var i=page*(page_now-1);i<page_now*page;i++) {
+                $('tbody').append('<tr>'+
+                        '<td>'+ info[i].operator_id +'</td>'+
+                        '<td>'+ info[i].operator_name +'</td>'+
+                        '<td>'+ info[i].operator_sex +'</td>'+
+                        '<td>'+ info[i].operator_tel +'</td>'+
+                        '<td>'+ info[i].operator_address +'</td>'+
+                        '<td>'+ info[i].operator_postcode +'</td>'+
+                        '<td>'+ info[i].operator_ID_number +'</td>'+
+                        '<td>'+ info[i].operator_position +'</td>'+
+                        '<td><a href="javascript:;" class="btn btn-primary btn-sm" onclick="Edit($(this))" edit-id="'+ info[i].operator_id +'">编辑 <i class="fa fa-edit"></i></a><a href="javascript:;" class="btn btn-warning btn-sm" onclick="Delete($(this))" delete-id="'+ info[i].operator_id +'">删除 <i class="fa fa-trash-o"></i></a></td>'+
+                        '</tr>');
+            }
+        }
+    }
+</script>

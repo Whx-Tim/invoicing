@@ -23,7 +23,7 @@
         </ol>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form id="good-form" ajax-url="">
+                <form id="good-form" ajax-url="${ctx}/test/IERP_GoodAction_save.do">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label for="good-name">商品名称</label>
@@ -32,13 +32,13 @@
                         <div class="form-group">
                             <label for="good-type">商品类型</label>
                             <select name="good_type" id="good-type" class="form-control">
-                                <option value="1">椅子</option>
-                                <option value="2">桌子</option>
-                                <option value="3">床垫</option>
-                                <option value="4">沙发</option>
-                                <option value="5">红木家具</option>
-                                <option value="6">柜子</option>
-                                <option value="7">衣橱</option>
+                                <option value="椅子">椅子</option>
+                                <option value="桌子">桌子</option>
+                                <option value="床垫">床垫</option>
+                                <option value="沙发">沙发</option>
+                                <option value="红木家具">红木家具</option>
+                                <option value="柜子">柜子</option>
+                                <option value="衣橱">衣橱</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -55,28 +55,36 @@
                         </div>
                         <div class="form-group">
                             <label for="good-purchase-price">采购价格</label>
-                            <input type="number" name="good_purchase_price" id="good-purchase-price" class="form-control" placeholder="请输入商品的采购价格">
+                            <input type="number" name="purchase_price" id="good-purchase-price" class="form-control" placeholder="请输入商品的采购价格">
                         </div>
                         <div class="form-group">
                             <label for="good-sale-price-1">第一销售价</label>
-                            <input type="number" name="good_sale_price_1" id="good-sale-price-1" class="form-control" placeholder="请输入商品的第一销售价格">
+                            <input type="number" name="sale_price1" id="good-sale-price-1" class="form-control" placeholder="请输入商品的第一销售价格">
                         </div>
                         <div class="form-group">
                             <label for="good-sale-price-2">第二销售价</label>
-                            <input type="number" name="good_sale_price_2" id="good-sale-price-2" class="form-control" placeholder="请输入商品的第二销售价格">
+                            <input type="number" name="sale_price2" id="good-sale-price-2" class="form-control" placeholder="请输入商品的第二销售价格">
                         </div>
                         <div class="form-group">
                             <label for="good-loweset-sale-price">最低销售价</label>
-                            <input type="number" name="good_lowest_sale_price" id="good-loweset-sale-price" class="form-control" placeholder="请输入商品的最低销售价格">
+                            <input type="number" name="lowest_sale_price" id="good-loweset-sale-price" class="form-control" placeholder="请输入商品的最低销售价格">
                         </div>
                         <div class="form-group">
-                            <label for="good-description">商品描述</label>
-                            <textarea name="good_description" id="good-description" cols="30" rows="10" class="form-control" placeholder="请输入商品的描述"></textarea>
+                            <label for="good-max">商品最大库存</label>
+                            <input type="number" class="form-control" name="good_max" id="good-max" value="2000">
                         </div>
+                        <div class="form-group">
+                            <label for="good-min">商品最小库存</label>
+                            <input type="number" class="form-control" name="good_min" id="good-min" value="0">
+                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label for="good-description">商品描述</label>-->
+                            <!--<textarea name="good_description" id="good-description" cols="30" rows="10" class="form-control" placeholder="请输入商品的描述"></textarea>-->
+                        <!--</div>-->
                     </div>
                 </form>
                 <div class="col-md-6">
-                    <button class="btn btn-success btn-block">保存</button>
+                    <button class="btn btn-success btn-block" id="save-button">保存</button>
                 </div>
                 <div class="col-md-6">
                     <a href="info-good.html" class="btn btn-danger btn-block">返回</a>
@@ -91,3 +99,8 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 <script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="blade.js"></script>
+<script>
+    saveData(function () {
+        window.location.href = 'info-good.jsp';
+    });
+</script>

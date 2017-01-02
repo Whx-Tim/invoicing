@@ -6,6 +6,7 @@
     <!--<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">-->
     <!--<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>-->
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <style>
         *{
             margin: 0;
@@ -102,12 +103,41 @@
     <div class="login-box">
         <h4>生活家居进销存管理系统</h4>
         <form id="form-login">
-            <input type="text" class="input-control" name="username" id="username" placeholder="用户名">
-            <input type="password"class="input-control" name="password" id="password" placeholder="密码">
+            <input type="text" class="input-control" name="user_name" id="username" placeholder="用户名">
+            <input type="password"class="input-control" name="user_password" id="password" placeholder="密码">
             <div class="center">
-                <button class="btn-login"><i class="fa fa-hand-o-right fa-2x"></i></button>
+                <button type="button" class="btn-login"><i class="fa fa-hand-o-right fa-2x"></i></button>
             </div>
         </form>
     </div>
 </body>
 </html>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script>
+    $('.btn-login').click(function () {
+        $.ajax({
+            url: '${ctx}/test/IERP_UserAction_login.do',
+            type: 'post',
+            data: $('form').serialize(),
+            dataType: 'json',
+            success: function (data) {
+                if (data.errcode) {
+                    swal('登录失败',data.errmsg,'error');
+                } else {
+                    swal({
+                        title: '登录成功',
+                        text:'',
+                        type: 'success'
+                    }, function () {
+                        window.location.href = 'invoicing-index.jsp';
+                    })
+                }
+            },
+            error: function (e) {
+                swal('系统错误','','error');
+                console.log(e.responseText);
+            }
+        })
+    })
+</script>

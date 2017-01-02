@@ -6,7 +6,38 @@
     <title>生活家居进销存管理系统</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link rel="stylesheet" href="blade.css">
+    <style>
+        .box {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            padding: 40px;
+            background-color: rgb(245,245,245);
+        }
+
+        .box-amount {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #353535;
+        }
+
+        .box i {
+            position: absolute;
+            right: 60px;
+            top: 50px;
+        }
+
+        .box-body {
+            font-size: 20px;
+        }
+
+        .row {
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" style="border: none" id="heading"></nav>
@@ -18,10 +49,122 @@
             <li><a href="">首页</a></li>
             <li class="active">仪表盘</li>
         </ol>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-amount" id="good">0</div>
+                    <i class="fa fa-cubes fa-2x"></i>
+                    <div class="box-body">累计商品数目</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-amount" id="customer">0</div>
+                    <i class="fa fa-user fa-2x"></i>
+                    <div class="box-body">累计客户数目</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-amount" id="supplier">0</div>
+                    <i class="fa fa-building-o fa-2x"></i>
+                    <div class="box-body">累计供应商数目</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-amount" id="purchase">0</div>
+                    <i class="fa fa-cart-arrow-down fa-2x"></i>
+                    <div class="box-body">累计采购数目</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-amount" id="purchase_Info">0</div>
+                    <i class="fa fa-level-down fa-2x"></i>
+                    <div class="box-body">累计入库数目</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-amount" id="sale_Order">0</div>
+                    <i class="fa fa-money fa-2x"></i>
+                    <div class="box-body">累计销售数目</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-amount" id="sale_Info">0</div>
+                    <i class="fa fa-level-up fa-2x"></i>
+                    <div class="box-body">累计出库数目</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="main" style="width: 100%;height: 600px;"></div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
 </html>
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="//cdn.bootcss.com/echarts/3.3.2/echarts.min.js"></script>
 <script src="blade.js"></script>
+<script>
+//    getUserInfo('${ctx}/test/IERP_UserAction_getuser.do',function (data) {
+//        console.log(data);
+//    })
+    var good,customer,supplier,purchase,purchase_Info,sale_Order,sale_Info;
+    $.ajax({
+        url: '${ctx}/test/IERP_StatisticalAction_count.do',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var info = data.data;
+            good = data.data.good;
+            customer = data.data.customer;
+            supplier = data.data.supplier;
+            purchase = data.data.purchase;
+            purchase_Info = data.data.purchase_Info;
+            sale_Info = data.data.sale_Info;
+            sale_Order = data.data.sale_Order;
+            for(var i in info) {
+                $('#'+i).html(info[i]);
+            }
+
+            var myChart = echarts.init(document.getElementById('main'));
+            var option = {
+                title: {
+                    text: '生活家居进销存统计数据'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['数目']
+                },
+                xAxis: {data:["商品","供应商","客户","出库","入库","销售","采购"]},
+                yAxis: {},
+                series: [{
+                    name: '数目',
+                    type: 'bar',
+                    data: [good,supplier,customer,sale_Info,purchase_Info,sale_Order,purchase]
+                }]
+            };
+            myChart.setOption(option);
+        },
+        error: function (e) {
+            swal('系统错误','','error');
+            console.log(e.responseText);
+        }
+    });
+
+
+</script>
